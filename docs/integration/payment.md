@@ -429,7 +429,7 @@ Return code | <code>respcd</code> | String(4) | 0000 = Request successful. <br> 
 | 1181       | Order expired (1181)    |
 | 1201       | Insufficient balance, please use a different payment method (1201)   |
 | 1202       | Incorrect or expired payment code, please show the correct payment code or refresh the payment code and retry (1202)   |
-| 1203       | Merchant account error, confirm that the payment account is configured correctly (1203)  |
+| 1203       | Merchant account esrror, confirm that the payment account is configured correctly (1203)  |
 | 1204       | Bank error, confirm that the payment wallet is functionable (1204)  |
 | 1205       | The transaction failed. Please try again later (1205)  |
 | 1212       | Please use the UnionPay overseas payment code (1212)  |

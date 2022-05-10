@@ -79,6 +79,7 @@ nav:
     - 'Integration':
         - 'integration/payment.md'
         - 'integration/alipay service window h5.md'
+        - 'integration/Transaction Enquiry.md'
     - 'Checkout Page': 'https://google.com'
     - 'Android SDK': 'https://google.com'
 
