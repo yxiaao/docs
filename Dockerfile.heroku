@@ -1,0 +1,15 @@
+FROM node:lts-alpine
+
+RUN apk update && apk add bash nodejs npm
+
+# Create app directory
+WORKDIR /usr/src/app
+
+COPY ./ ./
+
+RUN npm -g i serve
+
+RUN npm i
+RUN yarn build
+
+# CMD [ "node", "index.js" ]
