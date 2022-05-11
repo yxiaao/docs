@@ -1,6 +1,6 @@
 ## dev
 
-## docker
+## docker - dev server
 ```shell
 docker build -t mkdocs .
 
@@ -15,3 +15,10 @@ docker run --rm -it -p 8002:8000 \
 
 
 ```
+
+# trouble shoot
+## gh-deploy
+`fatal: unable to access 'https://github.com/': The requested URL returned error: 403`
+
+fix permission
+ref: https://github.com/ad-m/github-push-action/issues/96#issuecomment-889984928
