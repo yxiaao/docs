@@ -1,5 +1,126 @@
 # CDI Integration
 
-## topic 1
-## topic 2
-## topic 3
+## Overview of the QFPay's CDI data consent & request flow
+
+```mermaid
+sequenceDiagram
+  autonumber
+  participant dc as Data consumer
+  participant cdi as CDI
+  participant dp as Data provider
+  participant dgen as Data provider Data Generator
+
+  note left of dc: Consent request
+  dc->>cdi: send a consent request with Auth Code
+  dp->>cdi: poll a consent request
+  dp->>cdi: approve the consent
+
+  dc->>cdi: poll consent state & acknowledge consent update
+  
+  loop Data request
+    note left of dc: Data request
+    dc->>cdi: send a data request
+
+    dp->>cdi: poll the data request
+    dp->>cdi: approve the data request
+    dc->>cdi: poll & acknowledge data request state
+
+    note left of dc: Data sharing
+
+    dp->>dgen: submit a data request job
+    dgen-->>dp: notifition: data file(s)
+    
+    dp->>dc: share data file to secure store (CDI proxy / SFTP)
+    dp->>cdi: share access info
+    dc->>cdi: poll data access info
+    dc->>dc: download data file
+  end
+
+```
+
+## Auth Code
+The authorization code (Auth Code) has been adapted to the data owner's authorization of data sharing consent and identification. 
+
+Auth Code can be retrieved in QFPay merchant portal (MMS) anytime. It enables data owners to commit their consent confirmation online, to benefit from the full digital wordflow over the CDI and flexibility of Data Consent without a traditional phone call, or identification document check.
+
+Data Consumer can submit the Auth Code via Consent request payload as below
+```json
+{
+  "public": {
+    ...
+  },
+  "private": {
+    "dataOwnerId": "DO_001",
+    "purposePrivate": "JNS76EAJ", <--- Auth Code
+    "consentFileList": [
+      ...
+    ]
+  }
+}
+```
+
+## Data access info - SFTP
+#### Prerequisite
+- a SSH public key has been exchanged
+- a SFTP user has been created
+
+### access info sample
+```json
+{
+  "channel": "SFTP",
+  "endPoint": "${SFTP_HOSTNAME}:${SFTP_PORT}",
+  "accessToken": "SFTP_PRIVATE_KEY_NAME",
+  "fileType": "csv",
+  "filePath": "${uploadAbsoluteRemotePath}/${consumerId}/upload/TXN-V02-1130000459-20220401-20230309-1678327514554.csv",
+  "fileHash": "$fileHash"
+}
+
+```
+
+### last file indicator
+To indicate no futher updates for data files
+```json
+{
+    "channel": "SFTP",
+    "endPoint": "${SFTP_HOSTNAME}:${SFTP_PORT}",
+    "accessToken": "SFTP_PRIVATE_KEY_NAME",
+    "fileType": "csv",
+    "filePath": "/upload/completed.csv",
+    "fileHash": "$fileHash"
+  }
+```
+
+## Data access info - CDI Proxy
+```json
+{
+  "channel": "HTTPS",
+  "accessToken": "http_basic_authentication_password",
+  "fileType": "csv",
+  "endpointReverseProxy": " https://proxy-dataprovider-preprod.cdi.network/75f45deba96ff1b262b63180cb183ba4/OFPAYHFL1004DP/main data/ACCT12345 /data file 001.csv",
+  "fileHash": "$fileHash",
+  ...
+}
+
+```
+
+## Error codes
+| rejectReasonCode                                                                                          | rejectReasonDetail [^1] & description                                                                                                                                                 |
+|-----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| DataRequestRejectReasonInvalidConsent                                                                     | INVALID_CONSENT                                                                                                                                                                       |
+| DataRequestRejectReasonInvalidScope                                                                       | INVALID_DATE_RANGE                                                                                                                                                                    |
+| DataRequestRejectReasonCustomerNotFound                                                                   | CUSTOMER_NOT_FOUND                                                                                                                                                                    |
+| DataRequestRejectReasonInvalidHashKeyOfRequestPrivate                                                     | FILE_CHECKSUM_FAILED                                                                                                                                                                  |
+| DataRequestRejectReasonInvalidPurpose                                                                     | INVALID_PURPOSE_VALUE                                                                                                                                                                 |
+| DataRequestRejectReasonOthers                                                                             | [^NO_DATA] - No data found from the data request scope OTHER_REASON                                                                                                                      |
+|                                                                                                           |                                                                                                                                                                                       |
+| ConsentRejectReasonInvalidSignature                                                                       | INVALID_SIGNATURE                                                                                                                                                                     |
+| ConsentRejectReasonInvalidExpireTime                                                                      | INVALID_EXPIRE_TIME                                                                                                                                                                   |
+| ConsentRejectReasonInvalidScope                                                                           | INVALID_DATE_RANGE                                                                                                                                                                    |
+| ConsentRejectReasonCustomerNotFound                                                                       | CUSTOMER_NOT_FOUND                                                                                                                                                                    |
+| ConsentRejectReasonInvalidHashKey                                                                         | FILE_CHECKSUM_FAILED                                                                                                                                                                  |
+| ConsentRejectReasonInvalidPurpose                                                                         | INVALID_PURPOSE_VALUE                                                                                                                                                                 |
+| ConsentRejectReasonOthers                                                                                 | OTHER_REASON <br> INFO_MISMATCH - BR/CI & Company name not match <br> BR_NOT_FOUND <br> CI_NOT_FOUND  <br> INVALID_INFO - some data is invalid / auth code is invalid <br> MISSING_INFO - some data is missing |
+
+
+[^1] example of explicit value in rejectReasonDetail:
+[^NO_DATA] No data found from the data request scope
