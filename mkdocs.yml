@@ -76,6 +76,8 @@ extra_javascript:
   
 nav:
     - Home: 'index.md'
+    - 'CDI':
+      - 'cdi/integration.md'
     - 'Integration':
         - 'integration/payment.md'
         - 'integration/alipay service window h5.md'
