@@ -69,10 +69,10 @@ refer the [Steps to get Auth Code](!https://cdn.qfpay.com.hk/user_guide/Auth%20C
 
 ### Prerequisite
 
-- a SSH public key has been exchanged
+- a SSH public key has been add to SFTP server
 - a SFTP user has been created
 
-### access info sample
+### access info example
 
 ```json
 {
@@ -102,6 +102,8 @@ To indicate no futher updates for data files
 ```
 
 ## Data access info - CDI Proxy
+
+### access info example
 
 ```json
 {
