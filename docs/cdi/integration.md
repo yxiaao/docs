@@ -39,11 +39,13 @@ sequenceDiagram
 ```
 
 ## Auth Code
+
 The authorization code (Auth Code) has been adapted to the data owner's authorization of data sharing consent and identification. 
 
 Auth Code can be retrieved in QFPay merchant portal (MMS) anytime. It enables data owners to commit their consent confirmation online, to benefit from the full digital wordflow over the CDI and flexibility of Data Consent without a traditional phone call, or identification document check.
 
 Data Consumer can submit the Auth Code via Consent request payload as below
+
 ```json
 {
   "public": {
@@ -59,12 +61,19 @@ Data Consumer can submit the Auth Code via Consent request payload as below
 }
 ```
 
+### Retrieve Auth Code
+
+refer the [Steps to get Auth Code](!https://cdn.qfpay.com.hk/user_guide/Auth%20Code%20user%20guide.pdf)
+
 ## Data access info - SFTP
-#### Prerequisite
+
+### Prerequisite
+
 - a SSH public key has been exchanged
 - a SFTP user has been created
 
 ### access info sample
+
 ```json
 {
   "channel": "SFTP",
@@ -78,7 +87,9 @@ Data Consumer can submit the Auth Code via Consent request payload as below
 ```
 
 ### last file indicator
+
 To indicate no futher updates for data files
+
 ```json
 {
     "channel": "SFTP",
@@ -91,6 +102,7 @@ To indicate no futher updates for data files
 ```
 
 ## Data access info - CDI Proxy
+
 ```json
 {
   "channel": "HTTPS",
@@ -104,6 +116,7 @@ To indicate no futher updates for data files
 ```
 
 ## Error codes
+
 | rejectReasonCode 	| rejectReasonDetail [^1] & description 	|
 |---	|---	|
 | DataRequestRejectReasonInvalidConsent 	| INVALID_CONSENT 	|
@@ -126,6 +139,7 @@ To indicate no futher updates for data files
 [^NO_DATA] No data found from the data request scope
 
 ## Test values
+
 | ENV 	| Merchant Name Eng 	| Merchant Name Chi 	| BrNo 	| CI 	| MID 	| QF merchant Authorisation code 	|
 |---	|---	|---	|---	|---	|---	|---	|
 | test 	| Merchant One 	| 一號商户 	| 10000001 	| 12000001 	| 11000001 	| 11000001 	|
