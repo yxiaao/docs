@@ -104,23 +104,33 @@ To indicate no futher updates for data files
 ```
 
 ## Error codes
-| rejectReasonCode                                                                                          | rejectReasonDetail [^1] & description                                                                                                                                                 |
-|-----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| DataRequestRejectReasonInvalidConsent                                                                     | INVALID_CONSENT                                                                                                                                                                       |
-| DataRequestRejectReasonInvalidScope                                                                       | INVALID_DATE_RANGE                                                                                                                                                                    |
-| DataRequestRejectReasonCustomerNotFound                                                                   | CUSTOMER_NOT_FOUND                                                                                                                                                                    |
-| DataRequestRejectReasonInvalidHashKeyOfRequestPrivate                                                     | FILE_CHECKSUM_FAILED                                                                                                                                                                  |
-| DataRequestRejectReasonInvalidPurpose                                                                     | INVALID_PURPOSE_VALUE                                                                                                                                                                 |
-| DataRequestRejectReasonOthers                                                                             | [^NO_DATA] - No data found from the data request scope OTHER_REASON                                                                                                                      |
-|                                                                                                           |                                                                                                                                                                                       |
-| ConsentRejectReasonInvalidSignature                                                                       | INVALID_SIGNATURE                                                                                                                                                                     |
-| ConsentRejectReasonInvalidExpireTime                                                                      | INVALID_EXPIRE_TIME                                                                                                                                                                   |
-| ConsentRejectReasonInvalidScope                                                                           | INVALID_DATE_RANGE                                                                                                                                                                    |
-| ConsentRejectReasonCustomerNotFound                                                                       | CUSTOMER_NOT_FOUND                                                                                                                                                                    |
-| ConsentRejectReasonInvalidHashKey                                                                         | FILE_CHECKSUM_FAILED                                                                                                                                                                  |
-| ConsentRejectReasonInvalidPurpose                                                                         | INVALID_PURPOSE_VALUE                                                                                                                                                                 |
-| ConsentRejectReasonOthers                                                                                 | OTHER_REASON <br> INFO_MISMATCH - BR/CI & Company name not match <br> BR_NOT_FOUND <br> CI_NOT_FOUND  <br> INVALID_INFO - some data is invalid / auth code is invalid <br> MISSING_INFO - some data is missing |
+| rejectReasonCode 	| rejectReasonDetail [^1] & description 	|
+|---	|---	|
+| DataRequestRejectReasonInvalidConsent 	| INVALID_CONSENT 	|
+| DataRequestRejectReasonInvalidScope 	| INVALID_DATE_RANGE 	|
+| DataRequestRejectReasonCustomerNotFound 	| CUSTOMER_NOT_FOUND 	|
+| DataRequestRejectReasonInvalidHashKeyOfRequestPrivate 	| FILE_CHECKSUM_FAILED 	|
+| DataRequestRejectReasonInvalidPurpose 	| INVALID_PURPOSE_VALUE 	|
+| DataRequestRejectReasonOthers 	| [^NO_DATA] - No data found from the data request scope OTHER_REASON 	|
+|  	|  	|
+| ConsentRejectReasonInvalidSignature 	| INVALID_SIGNATURE 	|
+| ConsentRejectReasonInvalidExpireTime 	| INVALID_EXPIRE_TIME 	|
+| ConsentRejectReasonInvalidScope 	| INVALID_DATE_RANGE 	|
+| ConsentRejectReasonCustomerNotFound 	| CUSTOMER_NOT_FOUND 	|
+| ConsentRejectReasonInvalidHashKey 	| FILE_CHECKSUM_FAILED 	|
+| ConsentRejectReasonInvalidPurpose 	| INVALID_PURPOSE_VALUE 	|
+| ConsentRejectReasonOthers 	| OTHER_REASON<br>INFO_MISMATCH - BR/CI & Company name not match<br>BR_NOT_FOUND<br>CI_NOT_FOUND<br>INVALID_INFO - some data is invalid / auth code is invalid<br>MISSING_INFO - some data is missing 	|
 
 
 [^1] example of explicit value in rejectReasonDetail:
 [^NO_DATA] No data found from the data request scope
+
+## Test values
+| ENV 	| Merchant Name Eng 	| Merchant Name Chi 	| BrNo 	| CI 	| MID 	| QF merchant Authorisation code 	|
+|---	|---	|---	|---	|---	|---	|---	|
+| test 	| Merchant One 	| 一號商户 	| 10000001 	| 12000001 	| 11000001 	| 11000001 	|
+| test 	| Merchant Two 	| 商户二 	| 10000002 	| 12000002 	| 11000002 	| 11000002 	|
+| test 	| Merchant Three 	| 商户三 	| 10000003 	| 12000003 	| 11000003 	| 11000003 	|
+| test 	| Merchant Four 	| 商户四 	| 10000004 	| 12000004 	| 11000004 	| 11000004 	|
+| test 	| Merchant Five 	| 商户5 	| 10000005 	| 12000005 	| 11000005 	| 11000005 	|
+| test 	| Merchant Six 	| 商户6 	| 10000006 	| 12000006 	| 11000006 	| 11000006 	|
