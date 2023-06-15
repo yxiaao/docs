@@ -2,11 +2,13 @@
 
 ## docker - dev server
 ```shell
-docker build -t mkdocs .
 
 docker run --rm -it -p 8002:8000 \
   -v ${PWD}:/docs squidfunk/mkdocs-material:8.2.9 \
   serve --dev-addr=0.0.0.0:8000 --dirtyreload
+
+## dev
+docker build -t mkdocs .
 docker run --rm -it -p 8002:8000 \
   --name mkdocs \
   -v ${PWD}:/docs \
