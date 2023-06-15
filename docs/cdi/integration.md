@@ -138,15 +138,13 @@ To indicate no futher updates for data files
 
 
 [^1] example of explicit value in rejectReasonDetail:
+
 [^NO_DATA] No data found from the data request scope
 
 ## Test values
 
-| ENV 	| Merchant Name Eng 	| Merchant Name Chi 	| BrNo 	| CI 	| MID 	| QF merchant Authorisation code 	|
-|---	|---	|---	|---	|---	|---	|---	|
-| test 	| Merchant One 	| 一號商户 	| 10000001 	| 12000001 	| 11000001 	| 11000001 	|
-| test 	| Merchant Two 	| 商户二 	| 10000002 	| 12000002 	| 11000002 	| 11000002 	|
-| test 	| Merchant Three 	| 商户三 	| 10000003 	| 12000003 	| 11000003 	| 11000003 	|
-| test 	| Merchant Four 	| 商户四 	| 10000004 	| 12000004 	| 11000004 	| 11000004 	|
-| test 	| Merchant Five 	| 商户5 	| 10000005 	| 12000005 	| 11000005 	| 11000005 	|
-| test 	| Merchant Six 	| 商户6 	| 10000006 	| 12000006 	| 11000006 	| 11000006 	|
+| ENV  | Merchant Name Eng | Merchant Name Chi | BrNo     | CI       | MID      | QF merchant Auth Code | Simulation             | internal note     |
+|------|-------------------|-------------------|----------|----------|----------|-----------------------|------------------------|-------------------|
+| test | Merchant One      | 一號商户              | 10000001 | 12000001 | 11000001 | 11000001              | normal                 |                   |
+| test | Merchant Two      | 商户二               | 10000002 | 12000002 | 11000002 | 11000002              | simulate big data file | remove MID filter |
+| test | Merchant Three    | 商户三               | 10000003 | 12000003 | 11000003 | 11000003              | normal                 |
