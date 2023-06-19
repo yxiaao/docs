@@ -79,7 +79,7 @@ nav:
     - 'CDI':
       - 'cdi/integration.md'
       - 'cdi/data file specification.md'
-      - 'cdi/txn data file specification.md'
+      - 'cdi/transaction data file specification.md'
       - 'cdi/merchant data file specification.md'
     - 'Integration':
         - 'integration/payment.md'
