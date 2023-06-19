@@ -1,4 +1,4 @@
-# Data file specification
+# Transaction data file specification
 
 ## Data file naming
 TXN-V02-{MID}-{from:YYYYMMDD}-{to:YYYMMDD}-{generation_timestamp}[-{split_index}].csv
