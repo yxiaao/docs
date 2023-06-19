@@ -1,7 +1,7 @@
 # Merchant data file specification
 
 ## Data file naming
-merchant-V02-{MID}-{generation_timestamp}.csv
+MERCHANT-V02-{MID}-{generation_timestamp}.csv
 
 `MID`: Merchant ID
 
