@@ -32,9 +32,12 @@ TXN-V02-{MID}-{from:YYYYMMDD}-{to:YYYMMDD}-{generation_timestamp}[-{split_index}
 | 2        | from date                                           |
 | 3        | to date                                             |
 | 4        | MID - QFPay merchant ID                             |
-| 5        | BR No.                                              |
-| 6        | total of amount of transactions of the batch        |
-| 7        | total of amount of transactions of the current file |
+| 5        | SID - QFPay store ID                                | 
+| 6        | BR No.                                              |
+| 7        | no. of transactions in the current file             |
+| 8        | sum of amount of transactions in the current file   |
+| 9        | no. of transactions in the batch                    |
+| 10       | sum of amount of transactions in the batch          |
 
 ### record type 02 - Data record
 
@@ -64,10 +67,10 @@ TXN-V02-{MID}-{from:YYYYMMDD}-{to:YYYMMDD}-{generation_timestamp}[-{split_index}
 | Field No | description                                         |
 |----------|-----------------------------------------------------|
 | 1        | record type                                         |
-| 2        | no. of transactions                                 |
-| 3        | total of amount of transactions of the batch        |
-| 4        | total of amount of transactions of the current file |
-
+| 2        | no. of transactions in the current file             |
+| 3        | sum of amount of transactions in the current file   |
+| 4        | no. of transactions in the batch                    |
+| 5        | sum of amount of transactions in the batch          |
 
 ## Samples of data files
 (privately shared)
