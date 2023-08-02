@@ -145,6 +145,6 @@ To indicate no futher updates for data files
 
 | ENV  | Merchant Name Eng | Merchant Name Chi | BrNo     | CI       | MID      | QF merchant Auth Code | Simulation             | 
 |------|-------------------|-------------------|----------|----------|----------|-----------------------|------------------------|
-| test | Merchant One      | 一號商户              | 10000001 (deprecated) <br> 10000001-000-18-01-1 | 12000001 | 11000001 | 11000001              | normal                 |
-| test | Merchant Two      | 商户二               | 10000002 (deprecated) <br> 10000002-000-19-01-1 | 12000002 | 11000002 | 11000002              | simulate big data file | 
-| test | Merchant Three    | 商户三               | 10000003 (deprecated) <br> 10000003-000-24-01-1 | 12000003 | 11000003 | 11000003              | normal                 |
+| test | Merchant One      | 一號商户              | 10000001 | 12000001 | 11000001 | 11000001              | normal                 |
+| test | Merchant Two      | 商户二               | 10000002 | 12000002 | 11000002 | 11000002              | simulate big data file | 
+| test | Merchant Three    | 商户三               | 10000003 | 12000003 | 11000003 | 11000003              | normal                 |
