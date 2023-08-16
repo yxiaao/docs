@@ -4,33 +4,6 @@
 
 Create and manage subscriptions and recurring payment
 
-
-[How subscription works](#how-subscription-works)
-* [API Environment](#api-environment)
-* [API Resources](#api-resources)
-* [Create subscription steps](#create-subscription-steps)
-* [Subscription state](#subscription-state)
-
-[Common API response parameter](#common-api-response-parameter)
-
-[Customer](#customer)
-* [Create customer object](#create-customer-object)
-* [Update customer object](#update-customer-object)
-* [Inquiry customer object](#inquiry-customer-object)
-* [Delete customer object](#delete-customer-object)
-
-[Product](#product)
-* [Create product object](#create-product-object)
-* [Update product object](#update-product-object)
-* [Inquiry product object](#inquiry-product-object)
-* [Delete product object](#delete-product-object)
-
-[Subscription](#subscription)
-* [Create subscription object](#create-subscription-object)
-* [Update subscription object](#update-subscription-object)
-* [Inquiry subscription object](#inquiry-subscription-object)
-* [Cancel subscription object](#cancel-subscription-object)
-
 ## How subscription works
 ### API Environment
 | Environment Name | URL |
@@ -39,6 +12,7 @@ Create and manage subscriptions and recurring payment
 
 ### API Resources
 For build and manage subscriptions, the following API resources are required:
+
 | API Resources |
 |---|
 |[Customer](#customer)|
@@ -70,7 +44,9 @@ Customer is an API resource for merchant to store customer's information. This o
 ```
 API path: /customer/v1/create
 ```
+
 Request parameters:
+
 |Parameter Name|Data Type|Mandatory|Description|
 |---|---|---|---|
 |name|String|No|customer name|
@@ -92,6 +68,7 @@ Response parameters in **data** field:
 API path: /customer/v1/update
 ```
 Request parameters:
+
 |Parameter Name|Data Type|Mandatory|Description|
 |---|---|---|---|
 |customer_id|String|Yes|unqiue customer ID in QF system|
@@ -101,6 +78,7 @@ Request parameters:
 |billing_address|JSON|No|customer billing address|
 
 Response parameters in **data** field:
+
 |Parameter Name|Data Type|Description|
 |---|---|---|
 |customer_id|String|unqiue customer ID in QF system|
@@ -115,6 +93,7 @@ API path: /customer/v1/query
 ```
 
 Request parameters:
+
 |Parameter Name|Data Type|Mandatory|Description|
 |---|---|---|---|
 |customer_id|String|No|unqiue customer Id in QF system|
@@ -125,6 +104,7 @@ Request parameters:
 |page_size|Int|No|default value = 10, the max value is 100|
 
 Response parameters in **data** field:
+
 |Parameter Name|Data Type|Description|
 |---|---|---|
 |customer_id|String|unqiue customer ID in QF system|
@@ -137,7 +117,9 @@ permanently delete customer object, cannot be undo. Any subscription plan associ
 ```
 API path: /customer/v1/delete
 ```
+
 Request parameters:
+
 |Parameter Name|Data Type|Mandatory|Description|
 |---|---|---|---|
 |customer_id|String|Yes|unique customer identifier in QF system|
@@ -163,6 +145,7 @@ API path: /product/v1/create
 |usage_type|String|No|default value=licensed, possible values: licensed|
 
 Response parameters in **data** field:
+
 |Parameter Name|Data Type|Description|
 |---|---|---|
 |product_id|String|unique identifer generated in QF system|
@@ -180,7 +163,9 @@ update current product information
 ```
 API path: /product/v1/update
 ```
+
 Request parameters:
+
 |Parameter Name|Data Type|Mandatory|Description|
 |---|---|---|---|
 |product_id|String|Yes|unique identifier generated in QF system|
@@ -188,6 +173,7 @@ Request parameters:
 |description|String|No|product descritpion|
 
 Response parameters in **data** field:
+
 |Parameter Name|Data Type|Description|
 |---|---|---|
 |product_id|String|unique product identifer generated in QF system|
@@ -206,6 +192,7 @@ API path: /product/v1/create
 ```
 
 Request parameters:
+
 |Parameter Name|Data Type|Mandatory|Description|
 |---|---|---|---|
 |product_id|String|No|unique product identifier generated in QF system|
@@ -217,6 +204,7 @@ Request parameters:
 |page_size|Int|No| page size, default value=10,max value=100|
 
 Response parameters in **data** field:
+
 |product_id|String|unique identifer generated in QF system|
 |---|---|---|
 |name|String|product name that displays to the customer|
@@ -236,6 +224,7 @@ only can delete product that is not assoicated with any subscription object
 API path: /product/v1/delete
 
 Request parameters:
+
 |Parameter Name|Data Type|Mandatory|Description|
 |---|---|---|---|
 |product_id|String|No|unique product identifier generated in QF system|
@@ -247,7 +236,9 @@ QFPay automatically charges the customers on every billing cycle based on the pr
 ```
 API path: /subscription/v1/create
 ```
+
 Request parameters:
+
 |Parameter Name|Data Type|Mandatory|Description|
 |---|---|---|---|
 |customer_id|String|Yes|unique customer identifier in QF system|
@@ -257,12 +248,14 @@ Request parameters:
 |start_time|String|No|the time subscription will start to work, the first payment will be  |
 
 parameters in products:
+
 |Parameter Name|Data Type|Mandatory|Description|
 |---|---|---|---|
 |product_id|String|Yes|unique production identifier in QF system|
 |quantity|Int|No| default value=1|
 
 Response parameters in **data** field:
+
 |Parameter Name|Data Type|Description|
 |---|---|---|
 |customer_id|String|unique customer identifier in QF system|
@@ -278,6 +271,7 @@ API path: /subscription/v1/update
 ```
 
 Request parameters:
+
 |Parameter Name|Data Type|Mandatory|Description|
 |---|---|---|---|
 |subscription_id|String|Yes|unique subscription identifier in QF system|
@@ -287,6 +281,7 @@ Request parameters:
 |products|Object|No| list of unique product identifier in QF system and quantity|
 
 Response parameters in **data** field:
+
 |Parameter Name|Data Type|Description|
 |---|---|---|
 |subscription_id|String|unique subscription identifier in QF system|
@@ -303,6 +298,7 @@ API path: /subscription/v1/query
 ```
 
 Request parameters:
+
 |Parameter Name|Data Type|Mandatory|Description|
 |---|---|---|---|
 |page|Int|No| page no.,default value=1|
@@ -313,6 +309,7 @@ Request parameters:
 |state|String|No|subscription state, e.g. incompelete, active,...|
 
 Response parameters in **data** field:
+
 |Parameter Name|Data Type|Description|
 |---|---|---|
 |subscription_id|String|unique subscription identifier in QF system|
@@ -333,6 +330,7 @@ API path: /subscription/v1/cancel
 ```
 
 Request parameters:
+
 |Parameter Name|Data Type|Mandatory|Description|
 |---|---|---|---|
 |subscription_id|String|Yes|unique ID of subscription object|
