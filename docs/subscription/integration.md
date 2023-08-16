@@ -55,6 +55,7 @@ Request parameters:
 |billing_address|String|No|customer billing address, stringify JSON object|
 
 Response parameters in **data** field:
+
 |Parameter Name|Data Type|Description|
 |---|---|---|
 |customer_id|String|unqiue customer ID in QF system|
