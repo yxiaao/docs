@@ -77,7 +77,7 @@ extra_javascript:
 nav:
     - Home: 'index.md'
     - 'Subscription':
-    - 'subscription/integration.md'
+      - 'subscription/integration.md'
     - 'CDI':
       - 'cdi/integration.md'
       - 'cdi/data file specification.md'

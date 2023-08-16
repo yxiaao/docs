@@ -1,4 +1,7 @@
-﻿# QFPay Subscription API 20230816
+﻿# QFPay Subscription API 
+<sub><sup>last modified 20230816<sup><sub>
+
+
 Create and manage subscriptions and recurring payment
 
 
