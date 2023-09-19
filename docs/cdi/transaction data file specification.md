@@ -32,8 +32,8 @@ TXN-V02-{MID}-{from:YYYYMMDD}-{to:YYYMMDD}-{generation_timestamp}[-{split_index}
 | 2        | from date                                           |
 | 3        | to date                                             |
 | 4        | MID - QFPay merchant ID                             |
-| 5        | SID - QFPay store ID                                | 
-| 6        | BR No.                                              |
+| 5        | SID - QFPay store ID (if applicable)                               | 
+| 6        | BR No. (8 digits)                                             |
 | 7        | no. of transactions in the current file             |
 | 8        | sum of amount of transactions in the current file   |
 | 9        | no. of transactions in the batch                    |
