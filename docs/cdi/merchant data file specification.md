@@ -13,8 +13,8 @@ merchant-V02-{MID}-{generation_timestamp}.csv
 
 | Record type | description        |
 |-------------|--------------------|
-| 00          | header record      |
-| 01          | data header (optional)       |
+| 00          | header record (optional)     |
+| 01          | data header        |
 | 02          | data records       |
 | 99          | tailer record      |
 
