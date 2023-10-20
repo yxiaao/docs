@@ -1,6 +1,8 @@
 
 ## Test values
 
+For use in our test environment, we have created a set of test values for the following fields:
+
 | ENV  | Merchant Name Eng | Merchant Name Chi | BrNo     | CI       | MID      | QF merchant Auth Code | Simulation             | 
 |------|-------------------|-------------------|----------|----------|----------|-----------------------|------------------------|
 | test | Merchant One      | 一號商户              | 10000001 | 12000001 | 11000001 | 11000001            | normal                 |
