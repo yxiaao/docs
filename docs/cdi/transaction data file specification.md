@@ -73,4 +73,4 @@ TXN-V02-{MID}-{from:YYYYMMDD}-{to:YYYMMDD}-{generation_timestamp}[-{split_index}
 | 5        | sum of amount of transactions in the batch          |
 
 ## Samples of data files
-Data sample: https://cdn.qfpay.com.hk/cdi/data-samples/TXN-V02-11000001-20221001-20221002-1692085343502,csv
+Data sample: https://cdn.qfpay.com.hk/cdi/data-samples/TXN-V02-11000001-20221001-20221002-1692085343502.csv
