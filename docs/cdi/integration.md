@@ -115,14 +115,16 @@ Data owner should login to QFPay merchant portal (MMS) to get the Auth Code. Ple
 
 [Steps to get Auth Code](!https://cdn.qfpay.com.hk/user_guide/Auth%20Code%20user%20guide.pdf)
 
-## Data access info - SFTP
+## Data access info
 
-### prerequisite
+### using SFTP
+
+#### prerequisite
 
 - a SSH public key has been add to SFTP server
 - a SFTP user has been created
 
-### access info example
+#### access info example
 
 ```json
 {
@@ -132,6 +134,22 @@ Data owner should login to QFPay merchant portal (MMS) to get the Auth Code. Ple
   "fileType": "csv",
   "filePath": "${uploadAbsoluteRemotePath}/${consumerId}/upload/TXN-V02-1130000459-20220401-20230309-1678327514554.csv",
   "fileHash": "$fileHash"
+}
+
+```
+
+### using CDI Proxy
+
+#### access info example
+
+```json
+{
+  "channel": "HTTPS",
+  "accessToken": "http_basic_authentication_password",
+  "fileType": "csv",
+  "endpointReverseProxy": " https://proxy-dataprovider-preprod.cdi.network/75f45deba96ff1b262b63180cb183ba4/OFPAYHFL1004DP/main data/ACCT12345 /data file 001.csv",
+  "fileHash": "$fileHash",
+  ...
 }
 
 ```
@@ -149,22 +167,6 @@ The last file `"filePath": "/upload/completed.csv"` is not physically exist. It 
     "filePath": "/upload/completed.csv",
     "fileHash": "$fileHash"
   }
-```
-
-## Data access info - CDI Proxy
-
-### access info example
-
-```json
-{
-  "channel": "HTTPS",
-  "accessToken": "http_basic_authentication_password",
-  "fileType": "csv",
-  "endpointReverseProxy": " https://proxy-dataprovider-preprod.cdi.network/75f45deba96ff1b262b63180cb183ba4/OFPAYHFL1004DP/main data/ACCT12345 /data file 001.csv",
-  "fileHash": "$fileHash",
-  ...
-}
-
 ```
 
 ## Error codes
