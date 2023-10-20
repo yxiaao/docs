@@ -83,6 +83,7 @@ nav:
     - 'CDI':
       - 'cdi/integration.md'
       - 'cdi/data file specification.md'
+      - 'cdi/test values.md'
       - 'cdi/transaction data file specification.md'
       - 'cdi/merchant data file specification.md'
     - 'Integration':

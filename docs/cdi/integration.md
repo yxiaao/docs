@@ -8,7 +8,7 @@ sequenceDiagram
   participant dc as Data consumer
   participant cdi as CDI
   participant dp as Data provider
-  participant dgen as Data provider Data Generator
+  participant dgen as Data Generator
 
   note left of dc: Consent request
   dc->>cdi: send a consent request with Auth Code
@@ -38,6 +38,54 @@ sequenceDiagram
 
 ```
 
+## Consent Request
+
+Sample payload of Consent
+```json
+{
+    "consentId": "0152120c-490a-4225-90b5-f9e0c6968dc8",
+    "type": "ConsentTypeSignedDocNotRequired",
+    "dataConsumerId": "DC-SIM-001",
+    "dataConsumerName": "simulator-c",
+    "dataProviderId": "QFPAYHFL1004DP",
+    "dataProviderName": "QFPay Haojin Finte",
+    "scope": {
+        "scopeType": "DataScopeTypeDateRange",
+        "startDate": "2020-05-01",
+        "endDate": "2024-10-30"
+    },
+    "hashKey": "8eccd695d4a3d5ab4b23ca06f480fffbb4e0d86b291263151e01d184f9554f3d",
+    "status": "ConsentSubmitted",
+    "expireTime": 1790132798,
+    "private": {
+        "id": "dbd609d0-d6b8-417d-b970-b8d928127eb8",
+        "dataOwnerId": "1be5bb65-5e23-4e17-905b-30cd84ebafe1",
+        "dataOwnerName": "Shop One",
+        "consentFileList": [],
+        "purposePrivate": "please fill the auth code",
+        "secret": "5acf403de24cb97858c00f1860dbb747",
+        "brNo" : "HKG:12345678",
+        "dataOwnerReference": "1",
+        "createTime": {
+            "t": 1673245657,
+            "humanT": "2023-01-09 14:27:36"
+        },
+        "updateTime": {
+            "t": 1673245657,
+            "humanT": "2023-01-09 14:27:36"
+        }
+    },
+    "createTime": {
+        "t": 1673245657,
+        "humanT": "2023-01-09 14:27:36"
+    },
+    "updateTime": {
+        "t": 1673245657,
+        "humanT": "2023-01-09 14:27:36"
+    }
+}
+```
+
 ## Auth Code
 
 The authorization code (Auth Code) has been adapted to the data owner's authorization of data sharing consent and identification. 
@@ -61,13 +109,15 @@ Data Consumer can submit the Auth Code via Consent request payload as below
 }
 ```
 
-### Retrieve Auth Code
+### download a Auth Code
 
-refer the [Steps to get Auth Code](!https://cdn.qfpay.com.hk/user_guide/Auth%20Code%20user%20guide.pdf)
+Data owner should login to QFPay merchant portal (MMS) to get the Auth Code. Please below the steps to get the Auth Code.
+
+[Steps to get Auth Code](!https://cdn.qfpay.com.hk/user_guide/Auth%20Code%20user%20guide.pdf)
 
 ## Data access info - SFTP
 
-### Prerequisite
+### prerequisite
 
 - a SSH public key has been add to SFTP server
 - a SFTP user has been created
@@ -88,7 +138,7 @@ refer the [Steps to get Auth Code](!https://cdn.qfpay.com.hk/user_guide/Auth%20C
 
 ### last file indicator
 
-To indicate no futher updates for data files
+The last file `"filePath": "/upload/completed.csv"` is not physically exist. It indicates all data has been uploaded.
 
 ```json
 {
@@ -140,17 +190,3 @@ To indicate no futher updates for data files
 [^1] example of explicit value in rejectReasonDetail:
 
 [^NO_DATA] No data found from the data request scope
-
-## Test values
-
-| ENV  | Merchant Name Eng | Merchant Name Chi | BrNo     | CI       | MID      | QF merchant Auth Code | Simulation             | 
-|------|-------------------|-------------------|----------|----------|----------|-----------------------|------------------------|
-| test | Merchant One      | 一號商户              | 10000001 | 12000001 | 11000001 | 11000001            | normal                 |
-| test | Merchant Two      | 商户二               | 10000002 | 12000002 | 11000002 | 11000002             | big data file (<20MB)  | 
-| test | Merchant Three    | 商户三               | 10000003 | 12000003 | 11000003 | 11000003             | normal                 |
-| test | Merchant Four     | 商户四               | 10000004 | 12000004 | 11000004 | 11000004             | normal                 |
-| test | Merchant Five     | 商户五               | 10000005 | 12000005 | 11000005 | 11000005             | big data file (<20MB)  |
-| test | Merchant Six      | 商户六               | 10000006 | 12000006 | 11000006 | 11000006             | large data file (>20MB)|
-| test | Merchant Seven    | 商户七               | 10000007 | 12000007 | 11000007 | 11000007             | large data file (>20MB)|
-| test | Merchant Eight    | 商户八               | 10000008 | 12000008 | 11000008 | 11000008             | empty data file       |
-| test | Merchant Nine     | 商户九               | 10000009 | 12000009 | 11000009 | 11000009             | empty data file       |
