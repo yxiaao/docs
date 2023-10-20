@@ -115,6 +115,37 @@ Data owner should login to QFPay merchant portal (MMS) to get the Auth Code. Ple
 
 [Steps to get Auth Code](!https://cdn.qfpay.com.hk/user_guide/Auth%20Code%20user%20guide.pdf)
 
+
+## Data request
+sample of data request payload
+```json
+{
+	"private" : {
+		"dataOwnerId": "1be5bb65-5e23-4e17-905b-30cd84ebafe1",
+		"dataOwnerName" : "Shop One",
+		"secret" : "de13f3c14e2cc802ecce638efdad24c4",
+		"brNo" : "HKG:10000003",
+		"id" : "57fe5232-f660-48bd-953e-9d03c84f8106",
+		"createTime" : {
+			"t" : 1697773625,
+			"humanT" : "2023-10-20 11:47:05"
+		},
+		"updateTime" : {
+			"t" : 1697773625,
+			"humanT" : "2023-10-20 11:47:05"
+		}
+	},
+	"purpose" : "2023-10-2047ac80da953a4519ac7e7003aeb0fb47",
+	"dataScope" : {
+		"scopeType" : "DataScopeTypeDateRange",
+		"startDate" : "2023-04-23",
+		"endDate" : "2023-10-19"
+	},
+	"consentId" : "1ec3e40c-8706-4b23-843e-35d5f7be5782",
+  ...
+}  
+```
+
 ## Data access info
 
 ### using SFTP
