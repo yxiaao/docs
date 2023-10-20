@@ -85,10 +85,10 @@ nav:
       - 'cdi/test values.md'
       - 'cdi/transaction data file specification.md'
       - 'cdi/merchant data file specification.md'
-    - 'Integration':
+    - 'Payment API':
         - 'integration/payment.md'
         - 'integration/alipay service window h5.md'
         - 'integration/Transaction Enquiry.md'
-    - 'Checkout Page': 'https://google.com'
-    - 'Android SDK': 'https://google.com'
+    - 'Checkout Page': 'https://checkout-sdk.qfapi.com/'
+    - 'Android SDK': 'https://android-sdk.qfapi.com/'
 
