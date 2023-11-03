@@ -22,6 +22,7 @@ site_name: QF Pay Docs
 
 theme:
   name: material
+  customer_dir: custom_theme
   font:
     text: Consolas
     size: 14px
