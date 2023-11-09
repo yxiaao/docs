@@ -38,6 +38,11 @@ sequenceDiagram
 
 ```
 
+## Onboarding
+- Data Consumer setup by providing Consumer
+- Consider protocol for data file transfer, e.g. SFTP / HTTP
+- Consider maximum file size limitation for data file transfer
+
 ## Consent Request
 
 Sample payload of Consent

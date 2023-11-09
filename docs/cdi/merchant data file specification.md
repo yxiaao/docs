@@ -27,7 +27,7 @@ merchant-V02-{MID}-{generation_timestamp}.csv
 | 3        | Name                    |
 | 4        | Role, e.g. merchant, store, etc   |
 | 5        | Address                 |
-| 6        | (Reserved)              |
+| 6        | Onboard date - format in YYYY-MM-DD |
 | 7        | (Reserved)              |
 | 8        | (Reserved)              |
 | 9        | (Reserved)              |
