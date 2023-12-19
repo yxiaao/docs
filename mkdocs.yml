@@ -16,15 +16,17 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - admonition
+  - pymdownx.details
 
-copyright: QFPay
-site_name: QF Pay Docs
+# copyright: QFPay
+site_name: QFPay Docs
 
 theme:
   name: material
-  customer_dir: custom_theme
+  custom_dir: custom_theme
   font:
-    text: Consolas
+    text: Roboto
     size: 14px
   # custom_dir: !ENV [THEME_DIR, "material"]
   logo: assets/logo.png
@@ -51,25 +53,27 @@ theme:
     
     - toc.follow
     - toc.integrate
-    
+
 extra:
+  robots: 'noindex,noarchive,nofollow'
   analytics:
     provider: google
     property: G-XXXXXXXXXX
-    feedback:
-      title: Was this page helpful?
-      ratings:
-        - icon: material/emoticon-happy-outline
-          name: This page was helpful
-          data: 1
-          note: >-
-            Thanks for your feedback!
-        - icon: material/emoticon-sad-outline
-          name: This page could be improved
-          data: 0
-          note: >- 
-            Thanks for your feedback! Help us improve this page by
-            using our <a href="..." target=_blank>feedback form</a>.
+    # feedback:
+    #   title: Was this page helpful?
+    #   ratings:
+    #     - icon: material/emoticon-happy-outline
+    #       name: This page was helpful
+    #       data: 1
+    #       note: >-
+    #         Thanks for your feedback!
+    #     - icon: material/emoticon-sad-outline
+    #       name: This page could be improved
+    #       data: 0
+    #       note: >- 
+    #         Thanks for your feedback! Help us improve this page by
+    #         using our <a href="..." target=_blank>feedback form</a>.
+  disable_footer_link: true
 
 extra_javascript:
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
@@ -93,3 +97,11 @@ nav:
     - 'Checkout Page': 'https://checkout-sdk.qfapi.com/'
     - 'Android SDK': 'https://android-sdk.qfapi.com/'
 
+plugins:
+  - git-revision-date-localized:
+      type: iso_date
+  - tags
+
+# Hooks
+hooks:
+  - src/custom_theme/hooks/shortcodes.py
