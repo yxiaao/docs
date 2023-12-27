@@ -1,0 +1,2217 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../pos/ecr/">
+      
+      
+        <link rel="next" href="../../cdi/integration/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>QFPay Subscription API - QFPay Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  
+
+  <meta name="robots" content="noindex,noarchive,nofollow" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link
+    rel="stylesheet"
+    href="../../assets/stylesheets/custom.css"
+  />
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#qfpay-subscription-api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QFPay Docs" class="md-header__button md-logo" aria-label="QFPay Docs" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QFPay Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              QFPay Subscription API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pos/ecr/" class="md-tabs__link">
+          
+  
+  POS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  Subscription
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cdi/integration/" class="md-tabs__link">
+          
+  
+  CDI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../integration/payment/" class="md-tabs__link">
+          
+  
+  Payment API
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://checkout-sdk.qfapi.com/" class="md-tabs__link">
+        
+  
+    
+  
+  Checkout Page
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://android-sdk.qfapi.com/" class="md-tabs__link">
+        
+  
+    
+  
+  Android SDK
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QFPay Docs" class="md-nav__button md-logo" aria-label="QFPay Docs" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    QFPay Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    POS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            POS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pos/ecr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ECR integration technical specification (archived version 20231218)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Subscription
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Subscription
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    QFPay Subscription API
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    QFPay Subscription API
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-subscription-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How subscription works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How subscription works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Resources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-subscription-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create subscription steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscription-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscription state
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-api-response-parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common API response parameter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Customer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-customer-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create customer object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-customer-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update customer object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inquiry-customer-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inquiry customer object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-customer-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete customer object
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#product" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Product">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-product-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create product object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-product-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update product object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inquiry-product-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inquiry product object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-product-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete product object
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subscription" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscription
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscription">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-subscription-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create subscription object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-subscription-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update subscription object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inquiry-subscription-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inquiry subscription object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cancel-subscription-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cancel subscription object
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    CDI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            CDI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cdi/integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CDI Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cdi/test%20values/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Test values
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cdi/transaction%20data%20file%20specification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transaction data file specification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cdi/merchant%20data%20file%20specification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Merchant data file specification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Payment API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Payment API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/payment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Payment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/alipay%20service%20window%20h5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Alipay Service Window H5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/Transaction%20Enquiry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transaction Enquiry
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://checkout-sdk.qfapi.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Checkout Page
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://android-sdk.qfapi.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android SDK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="qfpay-subscription-api">QFPay Subscription API<a class="headerlink" href="#qfpay-subscription-api" title="Permanent link">&para;</a></h1>
+<p><sub><sup>last modified 20230816<sup><sub></p>
+<p>Create and manage subscriptions and recurring payment</p>
+<h2 id="how-subscription-works">How subscription works<a class="headerlink" href="#how-subscription-works" title="Permanent link">&para;</a></h2>
+<h3 id="api-environment">API Environment<a class="headerlink" href="#api-environment" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Environment Name</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sandbox</td>
+<td>https://openapi-int.qfapi.com</td>
+</tr>
+</tbody>
+</table>
+<h3 id="api-resources">API Resources<a class="headerlink" href="#api-resources" title="Permanent link">&para;</a></h3>
+<p>For build and manage subscriptions, the following API resources are required:</p>
+<table>
+<thead>
+<tr>
+<th>API Resources</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#customer">Customer</a></td>
+</tr>
+<tr>
+<td><a href="#payment-token">Payment Token</a></td>
+</tr>
+<tr>
+<td><a href="#product">Product</a></td>
+</tr>
+<tr>
+<td><a href="#subscription">Subscription</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="create-subscription-steps">Create subscription steps<a class="headerlink" href="#create-subscription-steps" title="Permanent link">&para;</a></h3>
+<p><img alt="enter image description here" src="http://www.plantuml.com/plantuml/png/hLHBRrCz4DtxLuow-hu5aNYmwGAr892weWXO8OGczYGn-8xTyRZX_dlk8t5wRsbI13jhvipZd3FoHLOKBKqmQ3KAs98rDYI0kRvtgUvbDyZQfUhRc8IYtlhK9vflkSrz-gnYku1ISpQ1tQmIjWFimxjhR7-BsQO1qAKROeKrAcsnFJDcBR4aUBgubkYALOD58vTcIMBgq2UlnbNEmGgX4gGTU8ZswM65UHhYyZjP1Q6RGbaDHoKGlzweKK7EQDL71cnYuMd85X5YsnfY1tsP6JaU5X7I8bmdUTT3zsoUBTvKgHz3fnepvpFB7o5K8OmDcIOkVI133VfWkcVml0PqJYZdavnggocfvukzUP_Y3sBuyZaJl0qqX3mhhGK7yTuBN5vVmTKXzFMk3BNzOR3dL1GiYkkUgxXuI0ST1XyH0SLjOd0x6M0807SDwMVoqeBhkym50JDbVCBnKOHnbvb4BnOVop9RyQbdVO9q7g5BWfp8-fMt-slA3_4VIeRcnrG8FYl4rPtR16G7DmLPlROJjdCsLHlRsa0P4Wesf2IdpoOVg0-THaamjsmt4ZcM37HBhFVgKycRQVL8r-tmn1EHNovUJtUyg_C8MNd92dig_rrQzRV3_MneCkX_Wq6XBszGlSKGMj1En3K9B5iOVhF3kjjq3eu6ILU5NPL-cmvEZPaHHJqabw26GgPzOt9Tw_hVpfsU3vXv2_SDcyjURVhxlMTEFKIE_z3hMPl77WNsBjBi9aAC2Ggh3p2vNEXbY08MsL88vFwf72V8rEqkY5rfmYy0" /></p>
+<h3 id="subscription-state">Subscription state<a class="headerlink" href="#subscription-state" title="Permanent link">&para;</a></h3>
+<p><a href="https://viewer.diagrams.net/?tags=%7B%7D&amp;highlight=0000ff&amp;edit=_blank&amp;layers=1&amp;nav=1&amp;title=Recurring_payment.drawio#R5Vxbc5s4FP41mdl9cIY7%2bDFxku7OtLuZpp3dPu0oRrFpMXgENHZ//QqQAEnYxkGA6uYllpCE0NH5zlW6Mheb3TsEtusPsQ/DK0Pzd1fm3ZWB/xwd/8tr9mWNPjfNsmaFAp/U1RVPwQ9IKjVSmwU%2bTJiGaRyHabBlK5dxFMFlytQBhOJXttlLHLJv3YIVFCqeliAUa/8J/HRd1nqGW9f/AYPVmr5Zd%2bblkw2gjcmXJGvgx6%2bNKvP%2bylygOE7LX5vdAob56tF1Kfs9HHhaTQzBKO3Swd59/WT/vcmSb/67J%2bP2fmW9%2bDOTfEeS7ukXQx8vACnGKF3HqzgC4X1de4viLPJhPqyGS3Wb93G8xZU6rvwK03RPqAmyNMZV63QTkqd4xmj/b7PwJR/s2qbFux0ZvCztSUn8ZLIKSZyhJTzynXTrALSC6ZF2nl02zBeh8Qayou9gvIF4QrgBgiFIg%2b/sLgFks62qdlXXxzjAczY0whm2R3YF4QvL0tghypmSXjVV8Y/GNOqqgtbn0N0rX/cdhBn5hocAJfkMFwiCFFO3bV%2b8B8%2bYwRlagjBYRfj3EtMEIlzxHaI0wAx0Qx5sAt8vtw1Mgh/guRgvp%2bY2/7jic%2b3bK/uulb5HN23%2bJrhrgwHyFobTGPKRXjPt2tI1nSGFUZZ6EnhGx9nTMjtC/PKSwEFIqwuUFUkZhhg/c5q8BGG4iMMYE%2b4uSVH8DZJSk8QH2U4gwMGFdjVuvxuE0V5rUDVJk3UDT03t8MIzC3f2KpmTAp82FvB5HYFP18cBPtNmN4I57wZ8NwiBfaMZAY/D76EbjAPYes%2bUI8plPUfgvUew38BiYi8gCJWGVcoSUmDVcJjl1%2bWAqs51GRBFLZUUI1cBgDBkA0Q//LaPsNpTtlzCJFGZ1yxZvKZda54U5mLxcjYap4maqEA3tI43z1kiRxUxdVYCYd1kYlVkWhusoX18YbBFug3W1QjTvZF0EY/d8zZP4oGNMENUF/6Ki8WlQAYiv4Cz52SJgm0axFG%2bLLttgNTWJGQaaLo1Z5Gpp4E2PKKZc5V0h1OqA9wFaQMHcOlL40ndKS%2bMCALDYMC5ZoRlcMKCQMagZgT1BbU4ZyodR1nep5tfCu%2bbjs46Z0zVeV8X3S9/Rst4sw1hCgWynUOqNMeBBkwUnZ6TOMxSeIOWBBeK2rqUk9IHyboCltd1kMKnLSiY9BWBrSSlyub9O6JSpVstWhXv95SmVVlKGXADeraNjoBqqWXAWaIB95FM4EF1T4kl0XqzWOWmJ8DRwBvrfTHZ/sOhn623Um0iU0afnun0uVJMZxsC030AUQbyjksQLfPorbJcZx%2bSSm/RLLS5zXJeTw/l8LzlTBOxoNZB0za4Nqip0G4eNBjSGMu50JkjpYvBdgjmArxVGoDkOEdlLND3EGv5oWt7XTva3rGPNR/G/nGoeG2qBssMoSBale4RhVHKkRlFsbS5I0Uh4FwoVCwNj1qu6M0dE7VI5KSTU0NhNcIdJjp7LtjoJocG2nHwqFzr7e2HQQ%2bXMmCNHoUDNa0cqJ%2bCDTbFtWyrMIxQvpETjHVd1o3S14dKvWMuOypVL0dws4iK7M2y%2bJLLdbFwvGR29LC49mGy9otbiZG72tX136EoxeXQg3N52drULi/bmUTWji825x3Fpu0OIjZFuchlt3njxhHpejQYcVEY821etMvhP27NxYTCkR3O00b9zuQ%2bqiFTbbnhph4g6keN358ty4hCPGOJJrCIyidsVL4K2jsh/sDbZ4R/rfJfvy2yJMXzQfnLot8V1jnpDpaSlGRRW6FvWhLvIOfUmeF0zPnE4vS8CFK7o25yhp4Pc6DibDeZyYkLy2IC%2bac76NoIkX9DxJvP0RYEFyzGZ6bGZWq3HA0YV5JTi0kNSX7KZ97O%2bO5QnN/dZ%2bWMo3zPOEat8jtPaN%2bnB9K4gcq16e%2by580Fw3OGhxZXtNYfQZaIDhN19BHKh1L0EcdmYUbOiQTbZLWT0Rxg9k91fmlca4PqHBNE598ECFNoGrYYY/uJMgGkxdgwMJjKR/7nSh0QGM6vRzPUJjAq%2bnl%2bxGDEIyjSde%2byCw5ICJq7YU/uAXcFSoisUx1%2bblAiWYNt/hxG/lMK0vzp4aPREtbO41dOWLhRjyC5v0iyLA2DThA56EcfMat8QQJtF%2bwaMHg7aWp4cacWxMZIkpja7spk03HHcExn3AibK0bYPsIk2yhtPUu9JcV2DIYCM%2bW1Zs%2bbhFmrzDPMGk1jFyvxR5PPcOERogB/db4/%2brrnR7rNw%2bKvMRooy5V/j%2bEcz3I9NK9BTWpPBIlPKCgs6vtIFNPqIAXlFEnHdekJQElHWkawr5U6tTJcjrzRVftVJGhHz%2bMfdNgb5hgxOVH3Jmx9qXq35XBoa3VUvAezT71fJLPN6%2bq5li/ge9GHXuJ1kkcUEnr08g0pQs8ze17CM4I%2b/Itc9dmZh%2bRfedcP48QD0QLBpF6EZOunEy9G9ULOx16BmcHlcM9FQTfuVVCaqGyoJPk656Iwd8lQu1h2nLdzvIhapYOnohj8ASn%2bdssDKSSnR6qY882WtfSsc80Q9iq9wQHu1iBL1L5FuOY1KRqAQU%2btUtL30wdoagDbYcBzmm1Xl7alB12MlTPTudOJZtfw5RvgHxfrm95LmtUX5pv3/wM=">state diagram</a>
+All subscription state will be pushed to merchant's backend service once triggered</p>
+<h2 id="common-api-response-parameter">Common API response parameter<a class="headerlink" href="#common-api-response-parameter" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>respcd</td>
+<td>String</td>
+<td>Return code, 0000 = API call succeeded</td>
+</tr>
+<tr>
+<td>resperr</td>
+<td>String</td>
+<td>result description</td>
+</tr>
+<tr>
+<td>respmsg</td>
+<td>String</td>
+<td>information description</td>
+</tr>
+<tr>
+<td>page</td>
+<td>Int</td>
+<td>page no.,present in inquiry API</td>
+</tr>
+<tr>
+<td>page_size</td>
+<td>Int</td>
+<td>page size,presented in inquiry API</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Object</td>
+<td>result, JSON object or list of JSON object</td>
+</tr>
+</tbody>
+</table>
+<h2 id="customer">Customer<a class="headerlink" href="#customer" title="Permanent link">&para;</a></h2>
+<p>Customer is an API resource for merchant to store customer's information. This object can be used in PaymentToken, Subscription APIs</p>
+<h3 id="create-customer-object">Create customer object<a class="headerlink" href="#create-customer-object" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>API path: /customer/v1/create
+</code></pre></div>
+<p>Request parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>No</td>
+<td>customer name</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>String</td>
+<td>No</td>
+<td>customer contact no.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>No</td>
+<td>customer email address</td>
+</tr>
+<tr>
+<td>billing_address</td>
+<td>String</td>
+<td>No</td>
+<td>customer billing address, stringify JSON object</td>
+</tr>
+</tbody>
+</table>
+<p>Response parameters in <strong>data</strong> field:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>customer_id</td>
+<td>String</td>
+<td>unqiue customer ID in QF system</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>customer name</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>String</td>
+<td>customer contact no.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>customer email address</td>
+</tr>
+<tr>
+<td>billing_address</td>
+<td>JSON</td>
+<td>customer billing address</td>
+</tr>
+</tbody>
+</table>
+<h3 id="update-customer-object">Update customer object<a class="headerlink" href="#update-customer-object" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>API path: /customer/v1/update
+</code></pre></div>
+Request parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>customer_id</td>
+<td>String</td>
+<td>Yes</td>
+<td>unqiue customer ID in QF system</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>No</td>
+<td>customer name</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>String</td>
+<td>No</td>
+<td>customer contact no.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>No</td>
+<td>customer email address</td>
+</tr>
+<tr>
+<td>billing_address</td>
+<td>JSON</td>
+<td>No</td>
+<td>customer billing address</td>
+</tr>
+</tbody>
+</table>
+<p>Response parameters in <strong>data</strong> field:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>customer_id</td>
+<td>String</td>
+<td>unqiue customer ID in QF system</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>customer name</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>String</td>
+<td>customer contact no.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>customer email address</td>
+</tr>
+<tr>
+<td>billing_address</td>
+<td>JSON</td>
+<td>customer billing address</td>
+</tr>
+</tbody>
+</table>
+<h3 id="inquiry-customer-object">Inquiry customer object<a class="headerlink" href="#inquiry-customer-object" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>API path: /customer/v1/query
+</code></pre></div>
+<p>Request parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>customer_id</td>
+<td>String</td>
+<td>No</td>
+<td>unqiue customer Id in QF system</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>No</td>
+<td>customer name</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>String</td>
+<td>No</td>
+<td>customer contact no.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>No</td>
+<td>customer email address</td>
+</tr>
+<tr>
+<td>page</td>
+<td>Int</td>
+<td>No</td>
+<td>default value = 1</td>
+</tr>
+<tr>
+<td>page_size</td>
+<td>Int</td>
+<td>No</td>
+<td>default value = 10, the max value is 100</td>
+</tr>
+</tbody>
+</table>
+<p>Response parameters in <strong>data</strong> field:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>customer_id</td>
+<td>String</td>
+<td>unqiue customer ID in QF system</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>customer name</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>String</td>
+<td>customer contact no.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>customer email address</td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete-customer-object">Delete customer object<a class="headerlink" href="#delete-customer-object" title="Permanent link">&para;</a></h3>
+<p>permanently delete customer object, cannot be undo. Any subscription plan associated with the deleted customer will be cancelled.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>API path: /customer/v1/delete
+</code></pre></div></p>
+<p>Request parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>customer_id</td>
+<td>String</td>
+<td>Yes</td>
+<td>unique customer identifier in QF system</td>
+</tr>
+</tbody>
+</table>
+<h2 id="product">Product<a class="headerlink" href="#product" title="Permanent link">&para;</a></h2>
+<p>Products are the model for goods or services that merchants will provide to the customers. It defines transaction amount, transaction currency and billing cycles(if applicable). This object will be used in subscription API.</p>
+<h3 id="create-product-object">Create product object<a class="headerlink" href="#create-product-object" title="Permanent link">&para;</a></h3>
+<p>create a new product
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>API path: /product/v1/create
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Yes</td>
+<td>product name that displays to the customer</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>No</td>
+<td>default value=onetime, possible values: onetime, recurring</td>
+</tr>
+<tr>
+<td>description</td>
+<td>String</td>
+<td>No</td>
+<td>product descritpion</td>
+</tr>
+<tr>
+<td>txamt</td>
+<td>Int</td>
+<td>Yes</td>
+<td>transaction amount, e.g. $1=100</td>
+</tr>
+<tr>
+<td>txcurrcd</td>
+<td>String</td>
+<td>Yes</td>
+<td>transaction currency, e.g. HKD</td>
+</tr>
+<tr>
+<td>interval</td>
+<td>String</td>
+<td>No</td>
+<td>possible values: monthly, yearly, mandatory for recurring product</td>
+</tr>
+<tr>
+<td>interval_count</td>
+<td>Int</td>
+<td>No</td>
+<td>interval between 2 charges, maximum 1 year allowed, mandatory for recurring product</td>
+</tr>
+<tr>
+<td>usage_type</td>
+<td>String</td>
+<td>No</td>
+<td>default value=licensed, possible values: licensed</td>
+</tr>
+</tbody>
+</table>
+<p>Response parameters in <strong>data</strong> field:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>product_id</td>
+<td>String</td>
+<td>unique identifer generated in QF system</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>product name that displays to the customer</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>default value=onetime, possible values: onetime, recurring</td>
+</tr>
+<tr>
+<td>description</td>
+<td>String</td>
+<td>product descritpion</td>
+</tr>
+<tr>
+<td>txamt</td>
+<td>Int</td>
+<td>transaction amount, e.g. $1=100</td>
+</tr>
+<tr>
+<td>txcurrcd</td>
+<td>String</td>
+<td>transaction currency, e.g. HKD</td>
+</tr>
+<tr>
+<td>interval</td>
+<td>String</td>
+<td>possible values: monthly, yearly</td>
+</tr>
+<tr>
+<td>interval_count</td>
+<td>Int</td>
+<td>interval between 2 charges</td>
+</tr>
+<tr>
+<td>usage_type</td>
+<td>String</td>
+<td>default value=licensed, possible values: licensed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="update-product-object">Update product object<a class="headerlink" href="#update-product-object" title="Permanent link">&para;</a></h3>
+<p>update current product information
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>API path: /product/v1/update
+</code></pre></div></p>
+<p>Request parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>product_id</td>
+<td>String</td>
+<td>Yes</td>
+<td>unique identifier generated in QF system</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>No</td>
+<td>product name that displays to the customer</td>
+</tr>
+<tr>
+<td>description</td>
+<td>String</td>
+<td>No</td>
+<td>product descritpion</td>
+</tr>
+</tbody>
+</table>
+<p>Response parameters in <strong>data</strong> field:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>product_id</td>
+<td>String</td>
+<td>unique product identifer generated in QF system</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>product name that displays to the customer</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>default value=onetime, possible values: onetime, recurring</td>
+</tr>
+<tr>
+<td>description</td>
+<td>String</td>
+<td>product descritpion</td>
+</tr>
+<tr>
+<td>txamt</td>
+<td>Int</td>
+<td>transaction amount, e.g. $1=100</td>
+</tr>
+<tr>
+<td>txcurrcd</td>
+<td>String</td>
+<td>transaction currency, e.g. HKD</td>
+</tr>
+<tr>
+<td>interval</td>
+<td>String</td>
+<td>possible values: monthly, yearly</td>
+</tr>
+<tr>
+<td>interval_count</td>
+<td>Int</td>
+<td>interval between 2 charges</td>
+</tr>
+<tr>
+<td>usage_type</td>
+<td>String</td>
+<td>default value=licensed, possible values: licensed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="inquiry-product-object">Inquiry product object<a class="headerlink" href="#inquiry-product-object" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>API path: /product/v1/create
+</code></pre></div>
+<p>Request parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>product_id</td>
+<td>String</td>
+<td>No</td>
+<td>unique product identifier generated in QF system</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>No</td>
+<td>product name that displays to the customer</td>
+</tr>
+<tr>
+<td>description</td>
+<td>String</td>
+<td>No</td>
+<td>product descritpion</td>
+</tr>
+<tr>
+<td>txcurrcd</td>
+<td>String</td>
+<td>No</td>
+<td>transaction currency</td>
+</tr>
+<tr>
+<td>interval</td>
+<td>String</td>
+<td>No</td>
+<td>possible values: monthly,yearly</td>
+</tr>
+<tr>
+<td>page</td>
+<td>Int</td>
+<td>No</td>
+<td>page no., default value=1</td>
+</tr>
+<tr>
+<td>page_size</td>
+<td>Int</td>
+<td>No</td>
+<td>page size, default value=10,max value=100</td>
+</tr>
+</tbody>
+</table>
+<p>Response parameters in <strong>data</strong> field:</p>
+<table>
+<thead>
+<tr>
+<th>product_id</th>
+<th>String</th>
+<th>unique identifer generated in QF system</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>product name that displays to the customer</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>possible values: onetime, recurring</td>
+</tr>
+<tr>
+<td>description</td>
+<td>String</td>
+<td>product descritpion</td>
+</tr>
+<tr>
+<td>txamt</td>
+<td>Int</td>
+<td>transaction amount, e.g. $1=100</td>
+</tr>
+<tr>
+<td>txcurrcd</td>
+<td>String</td>
+<td>transaction currency, e.g. HKD</td>
+</tr>
+<tr>
+<td>interval</td>
+<td>String</td>
+<td>possible values: monthly, yearly</td>
+</tr>
+<tr>
+<td>interval_count</td>
+<td>Int</td>
+<td>interval between 2 charges</td>
+</tr>
+<tr>
+<td>usage_type</td>
+<td>String</td>
+<td>possible values: licensed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete-product-object">Delete product object<a class="headerlink" href="#delete-product-object" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>only can delete product that is not assoicated with any subscription object
+</code></pre></div>
+<p>API path: /product/v1/delete</p>
+<p>Request parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>product_id</td>
+<td>String</td>
+<td>No</td>
+<td>unique product identifier generated in QF system</td>
+</tr>
+</tbody>
+</table>
+<h2 id="subscription">Subscription<a class="headerlink" href="#subscription" title="Permanent link">&para;</a></h2>
+<p>QFPay automatically charges the customers on every billing cycle based on the product with the provided Payment Token until the subscription is finished or cancelled. Before create subscription, <strong>payment token</strong>, <strong>customer</strong> and <strong>product</strong> must be created.</p>
+<h3 id="create-subscription-object">Create subscription object<a class="headerlink" href="#create-subscription-object" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>API path: /subscription/v1/create
+</code></pre></div>
+<p>Request parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>customer_id</td>
+<td>String</td>
+<td>Yes</td>
+<td>unique customer identifier in QF system</td>
+</tr>
+<tr>
+<td>token_id</td>
+<td>String</td>
+<td>Yes</td>
+<td>unique payment token identifier in QF system</td>
+</tr>
+<tr>
+<td>products</td>
+<td>Object</td>
+<td>Yes</td>
+<td>list of unique product identifier in QF system and quantity</td>
+</tr>
+<tr>
+<td>total_billing_cycles</td>
+<td>Int</td>
+<td>No</td>
+<td>the total billing cycles of the subscirption, infinity if null value</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>String</td>
+<td>No</td>
+<td>the time subscription will start to work, the first payment will be</td>
+</tr>
+</tbody>
+</table>
+<p>parameters in products:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>product_id</td>
+<td>String</td>
+<td>Yes</td>
+<td>unique production identifier in QF system</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Int</td>
+<td>No</td>
+<td>default value=1</td>
+</tr>
+</tbody>
+</table>
+<p>Response parameters in <strong>data</strong> field:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>customer_id</td>
+<td>String</td>
+<td>unique customer identifier in QF system</td>
+</tr>
+<tr>
+<td>token_id</td>
+<td>String</td>
+<td>unique payment token identifier in QF system</td>
+</tr>
+<tr>
+<td>products</td>
+<td>Object</td>
+<td>list of unique product identifier in QF system and quantity</td>
+</tr>
+<tr>
+<td>total_billing_cycles</td>
+<td>Int</td>
+<td>the total billing cycles of the subscirption, infinity cycles if null value</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>String</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<h3 id="update-subscription-object">Update subscription object<a class="headerlink" href="#update-subscription-object" title="Permanent link">&para;</a></h3>
+<p>update current subscription
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>API path: /subscription/v1/update
+</code></pre></div></p>
+<p>Request parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>subscription_id</td>
+<td>String</td>
+<td>Yes</td>
+<td>unique subscription identifier in QF system</td>
+</tr>
+<tr>
+<td>total_billing_cycles</td>
+<td>Int</td>
+<td>No</td>
+<td>the total billing cycles of the subscirption, infinity if null value</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>String</td>
+<td>No</td>
+<td>the time that subscription will start to work, it will be the first subscription payment time</td>
+</tr>
+<tr>
+<td>token_id</td>
+<td>String</td>
+<td>No</td>
+<td>unique payment token identifier in QF system</td>
+</tr>
+<tr>
+<td>products</td>
+<td>Object</td>
+<td>No</td>
+<td>list of unique product identifier in QF system and quantity</td>
+</tr>
+</tbody>
+</table>
+<p>Response parameters in <strong>data</strong> field:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>subscription_id</td>
+<td>String</td>
+<td>unique subscription identifier in QF system</td>
+</tr>
+<tr>
+<td>customer_id</td>
+<td>String</td>
+<td>unique customer identifier in QF system</td>
+</tr>
+<tr>
+<td>token_id</td>
+<td>String</td>
+<td>unique payment token identifier in QF system</td>
+</tr>
+<tr>
+<td>products</td>
+<td>Object</td>
+<td>list of unique product identifier in QF system and quantity</td>
+</tr>
+<tr>
+<td>total_billing_cycles</td>
+<td>Int</td>
+<td>the total billing cycles of the subscirption, infinity cycles if null value</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>String</td>
+<td>the time that subscription will start to work, it will be the first subscription payment time</td>
+</tr>
+<tr>
+<td>state</td>
+<td>String</td>
+<td>subscription state</td>
+</tr>
+</tbody>
+</table>
+<h3 id="inquiry-subscription-object">Inquiry subscription object<a class="headerlink" href="#inquiry-subscription-object" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>API path: /subscription/v1/query
+</code></pre></div>
+<p>Request parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>page</td>
+<td>Int</td>
+<td>No</td>
+<td>page no.,default value=1</td>
+</tr>
+<tr>
+<td>page_size</td>
+<td>Int</td>
+<td>No</td>
+<td>page size, default value=10, max value=100</td>
+</tr>
+<tr>
+<td>subscritpion_id</td>
+<td>String</td>
+<td>No</td>
+<td>unique subscription identifier in QF system</td>
+</tr>
+<tr>
+<td>customer_id</td>
+<td>String</td>
+<td>No</td>
+<td>unique customer identifier in QF system</td>
+</tr>
+<tr>
+<td>token_id</td>
+<td>String</td>
+<td>No</td>
+<td>unique payment otken identifier in QF system</td>
+</tr>
+<tr>
+<td>state</td>
+<td>String</td>
+<td>No</td>
+<td>subscription state, e.g. incompelete, active,...</td>
+</tr>
+</tbody>
+</table>
+<p>Response parameters in <strong>data</strong> field:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>subscription_id</td>
+<td>String</td>
+<td>unique subscription identifier in QF system</td>
+</tr>
+<tr>
+<td>customer_id</td>
+<td>String</td>
+<td>unique customer identifier in QF system</td>
+</tr>
+<tr>
+<td>token_id</td>
+<td>String</td>
+<td>unique payment token identifier in QF system</td>
+</tr>
+<tr>
+<td>products</td>
+<td>Object</td>
+<td>list of unique product identifier in QF system and quantity</td>
+</tr>
+<tr>
+<td>total_billing_cycles</td>
+<td>Int</td>
+<td>the total billing cycles of the subscirption, infinity cycles if null value</td>
+</tr>
+<tr>
+<td>state</td>
+<td>String</td>
+<td>subscription state</td>
+</tr>
+<tr>
+<td>next_billing_time</td>
+<td>String</td>
+<td>next fund deduct time</td>
+</tr>
+<tr>
+<td>last_billing_time</td>
+<td>String</td>
+<td>previous fund deduct time</td>
+</tr>
+<tr>
+<td>completed_billing_iteration</td>
+<td>Int</td>
+<td>how many billing cycles completed</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>String</td>
+<td>the time that subscription will start to work, it will be the first subscription payment time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cancel-subscription-object">Cancel subscription object<a class="headerlink" href="#cancel-subscription-object" title="Permanent link">&para;</a></h3>
+<p>cancel customer's subscription immediately
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>API path: /subscription/v1/cancel
+</code></pre></div></p>
+<p>Request parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Data Type</th>
+<th>Mandatory</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>subscription_id</td>
+<td>String</td>
+<td>Yes</td>
+<td>unique ID of subscription object</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-27</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "navigation.top", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+      
+        <script src="../../javascripts/tablesort.js"></script>
+      
+    
+  </body>
+</html>

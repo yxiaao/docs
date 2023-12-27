@@ -1,0 +1,1670 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../../subscription/integration/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>ECR integration technical specification (archived version 20231218) - QFPay Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  
+
+  <meta name="robots" content="noindex,noarchive,nofollow" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link
+    rel="stylesheet"
+    href="../../assets/stylesheets/custom.css"
+  />
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ecr-integration-technical-specification-archived-version-20231218" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QFPay Docs" class="md-header__button md-logo" aria-label="QFPay Docs" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QFPay Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ECR integration technical specification (archived version 20231218)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  POS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../subscription/integration/" class="md-tabs__link">
+          
+  
+  Subscription
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cdi/integration/" class="md-tabs__link">
+          
+  
+  CDI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../integration/payment/" class="md-tabs__link">
+          
+  
+  Payment API
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://checkout-sdk.qfapi.com/" class="md-tabs__link">
+        
+  
+    
+  
+  Checkout Page
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://android-sdk.qfapi.com/" class="md-tabs__link">
+        
+  
+    
+  
+  Android SDK
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QFPay Docs" class="md-nav__button md-logo" aria-label="QFPay Docs" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    QFPay Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    POS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            POS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    ECR integration technical specification (archived version 20231218)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    ECR integration technical specification (archived version 20231218)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-pos-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. POS-KEY
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Encryption
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-request-payload-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Request payload format
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Request payload format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-trade" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Trade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-refund-void" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Refund / Void
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-print-receipt" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Print receipt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-print-transaction-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Print transaction summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 根据订单id 查询交易信息
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6 取消交易或者退款请求
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sign-signature" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sign signature
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-fields-explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Fields explanation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-response-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Response format
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-usb-data-transmission-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. USB data transmission method
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-http-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. HTTP protocol
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-tcp-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. TCP protocol
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-cash-register-pos-communication-protocol-usb" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Cash register &amp; Pos communication protocol (USB)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Cash register & Pos communication protocol (USB)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-use-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Use scenario
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-communication-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Communication method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-payload-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3 Payload format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-detail-explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4 detail explanation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.4 detail explanation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-indicator-and-end-indicator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start indicator and end indicator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#payload-error-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Payload error type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-and-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      request and response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      response timeout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#payload-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      payload length
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="payload length">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-pack-splitting-and-concatenation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data pack splitting and concatenation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data encryption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serial-port-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serial port settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Serial port settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usb-to-serial-port-line-chip-type-supported" class="md-nav__link">
+    <span class="md-ellipsis">
+      USB to serial port line chip type supported
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Subscription
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Subscription
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../subscription/integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QFPay Subscription API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    CDI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            CDI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cdi/integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CDI Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cdi/test%20values/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Test values
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cdi/transaction%20data%20file%20specification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transaction data file specification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cdi/merchant%20data%20file%20specification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Merchant data file specification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Payment API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Payment API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/payment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Payment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/alipay%20service%20window%20h5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Alipay Service Window H5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/Transaction%20Enquiry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transaction Enquiry
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://checkout-sdk.qfapi.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Checkout Page
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://android-sdk.qfapi.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android SDK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="ecr-integration-technical-specification-archived-version-20231218">ECR integration technical specification (archived version 20231218)<a class="headerlink" href="#ecr-integration-technical-specification-archived-version-20231218" title="Permanent link">&para;</a></h1>
+<h2 id="1-pos-key">1. POS-KEY<a class="headerlink" href="#1-pos-key" title="Permanent link">&para;</a></h2>
+<p>POS-KEY is a secret key used to encrypt and decrypt the data. It is generated by Haojin App. </p>
+<p>The default POS-KEY is <code>f46b1f08bec1f39104792cc79ec9aacd</code></p>
+<p><br></p>
+<p>The default encrpytion is ON. </p>
+<p>There is an option to switch on/off on merchant portal (MMS) or refresh POS-KEY. And, Haojin App refresh is required to be effective</p>
+<h2 id="2-encryption">2. Encryption<a class="headerlink" href="#2-encryption" title="Permanent link">&para;</a></h2>
+<p>All data is encrypted by AES. The key is POS-KEY and the IV is <code>qfpay202306_hjsh</code></p>
+<p><br></p>
+<p>The data is encoded by Base64 after encryption.</p>
+<h2 id="3-request-payload-format">3. Request payload format<a class="headerlink" href="#3-request-payload-format" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Parameter name</th>
+<th>Mandatory</th>
+<th>Parameter type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>amt</td>
+<td>required</td>
+<td>Integer</td>
+<td>Amount x 100, e.g. $10.1 =&gt; 1010</td>
+</tr>
+<tr>
+<td>func_type</td>
+<td>required</td>
+<td>String</td>
+<td>Instruction code</td>
+</tr>
+<tr>
+<td>channel</td>
+<td>required</td>
+<td>String</td>
+<td>Wallet name, refer to Channel list</td>
+</tr>
+<tr>
+<td>out_trade_no</td>
+<td>optional</td>
+<td>String</td>
+<td>Merchant reference. <br> if not passed, the out_trade_no won't be passed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="31-trade">3.1 Trade<a class="headerlink" href="#31-trade" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For QR code payment, MPM/CPM mode is automatically selected base on last usage.</p>
+<p>camera_id:扫码支付的时候可以切换前后摄像头,可以不传这个字段，默认是后置摄像头</p>
+<div class="highlight"><pre><span></span><code>    0：CAMERA_PARAM_BACK  后置摄像头
+    1：CAMERA_PARAM_FROT  前置摄像头
+</code></pre></div>
+<p><span class="badge version"><i class="fa fa-tag"></i> 4.32.0</span></p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;amt&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;camera_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&quot;channel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;card_payment&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">&quot;func_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">&quot;out_trade_no&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;456799999999&quot;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="nt">&quot;digest&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;76b9186077cdc2bc5d78ae921309811d&quot;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">}</span>
+</code></pre></div>
+<p>For inquiry the transaction result, please use the Inquire API: https://sdk.qfapi.com/?python#transaction-enquiry</p>
+<h3 id="32-refund-void">3.2 Refund / Void<a class="headerlink" href="#32-refund-void" title="Permanent link">&para;</a></h3>
+<p>Enter password to proceed, the password is the login password of POS App</p>
+<p>refund_amount:You can pass null or "". If it is empty or "", the default refund amount 
+               is the refundable amount of the order.</p>
+<p>allow_modify_flag:（这个字段可以不传，默认不允许修改）
+     0:退款的时候，不能修改金额；
+     1:退款的时候允许修改金额
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;allow_modify_flag&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">&quot;func_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1002</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">&quot;orderId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;order_id&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">&quot;refund_amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.05&quot;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nt">&quot;digest&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;9C8E9FB05C7C24B6CA04EBFA1263EF41&quot;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
+</code></pre></div></p>
+<h3 id="33-print-receipt">3.3 Print receipt<a class="headerlink" href="#33-print-receipt" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;orderId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12345678&quot;</span><span class="p">,</span><span class="nt">&quot;func_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3001</span><span class="p">},</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;digest&quot;</span><span class="p">:</span><span class="s2">&quot;79fd145311d54d03e4e685d50f15dd7f&quot;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="34-print-transaction-summary">3.4 Print transaction summary<a class="headerlink" href="#34-print-transaction-summary" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;func_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3002</span><span class="p">},</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&quot;digest&quot;</span><span class="p">:</span><span class="s2">&quot;79fd145311d54d03e4e685d50f15dd7f&quot;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="35-id">3.5 根据订单id 查询交易信息<a class="headerlink" href="#35-id" title="Permanent link">&para;</a></h3>
+<p><span class="badge version"><i class="fa fa-tag"></i> 4.31.3</span></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">     </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;orderId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12345678&quot;</span><span class="p">,</span><span class="nt">&quot;func_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4001</span><span class="p">},</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">     </span><span class="nt">&quot;digest&quot;</span><span class="p">:</span><span class="s2">&quot;99CE8BF9C7304AC964522D10F51660B4&quot;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="36">3.6 取消交易或者退款请求<a class="headerlink" href="#36" title="Permanent link">&para;</a></h3>
+<p><span class="badge version"><i class="fa fa-tag"></i> 4.31.3</span></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">     </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;func_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5001</span><span class="p">},</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">     </span><span class="nt">&quot;digest&quot;</span><span class="p">:</span><span class="s2">&quot;99CE8BF9C7304AC964522D10F51660B4&quot;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>content：请求的数据信息
+digest:content 数据的签名,按照字段顺序拼接成 字段=值 的形式，算签名,</p>
+<h2 id="sign-signature">Sign signature<a class="headerlink" href="#sign-signature" title="Permanent link">&para;</a></h2>
+<p>sample of sign signature</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// original payload</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nx">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;amt&quot;</span><span class="o">:</span><span class="mf">100</span><span class="p">,</span><span class="s2">&quot;channel&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;card_payment&quot;</span><span class="p">,</span><span class="s2">&quot;func_type&quot;</span><span class="o">:</span><span class="mf">1001</span><span class="p">,</span><span class="s2">&quot;out_trade_no&quot;</span><span class="o">:</span><span class="s2">&quot;456799999999&quot;</span><span class="p">}</span><span class="w"> </span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1">// sorted keys in alphabetical ascending order</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nx">format_content</span><span class="o">=</span><span class="p">{</span><span class="nx">amt</span><span class="o">=</span><span class="mf">100</span><span class="p">,</span><span class="nx">channel</span><span class="o">=</span><span class="s1">&#39;card_payment&#39;</span><span class="p">,</span><span class="nx">func_type</span><span class="o">=</span><span class="mf">1001</span><span class="p">,</span><span class="nx">out_trade_no</span><span class="o">=</span><span class="s1">&#39;456799999999&#39;</span><span class="p">}</span><span class="w"> </span><span class="nx">这种格式</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1">// encryption</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c1">// !! if the value is empty, pass &#39;&#39; (empty string) instead</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="nx">digest</span><span class="o">=</span><span class="nx">md5</span><span class="p">(</span><span class="nx">format_content</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">pos_key</span><span class="p">)</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="nx">digest</span><span class="o">=</span><span class="p">(</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span><span class="nx">md5</span><span class="p">(</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="p">{</span><span class="nx">amt</span><span class="o">=</span><span class="mf">100</span><span class="p">,</span><span class="nx">channel</span><span class="o">=</span><span class="s1">&#39;card_payment&#39;</span><span class="p">,</span><span class="nx">func_type</span><span class="o">=</span><span class="mf">1001</span><span class="p">,</span><span class="nx">out_trade_no</span><span class="o">=</span><span class="s1">&#39;456799999999&#39;</span><span class="p">}</span><span class="nx">f46b1f08bec1f39104792cc79ec9aacd</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">  </span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="p">)</span>
+</code></pre></div>
+<p>if encryption is enabled, the above payload will be encrypted by AES at <code>content</code>, and the <code>digest</code> will be calculated based on the encrypted payload.</p>
+<p>for example
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{func_type: 3002}&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nt">&quot;digest&quot;</span><span class="p">:</span><span class="s2">&quot;79fd145311d54d03e4e685d50f15dd7f&quot;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">}</span>
+</code></pre></div></p>
+<h2 id="4-fields-explanation">4. Fields explanation<a class="headerlink" href="#4-fields-explanation" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>1、 func_type : business type
+    （1）1001 Trade
+    （2）1002 Refund   
+    （3）3001 Print receipt 
+    （4）3002 Print transaction summary
+    （5）4001 查询交易信息
+    （6）5001 取消交易或者退款请求
+
+2、channel: payment method
+    （1）、card_payment  Card payment
+    （2）、wx            WeChat Pay
+    （3）、alipay        Alipay
+    （4）、payme         PayMe
+    （5）、union         UnionPay
+    （6）、fps           FPS
+    （7）、octopus       Octopus
+    （8）、unionpay_card     union card pay
+
+3、amt: Transaction amount, unit is in cent
+
+4、orderId: Transaction reference number, the same as out_trade_no
+</code></pre></div>
+<h2 id="5-response-format">5. Response format<a class="headerlink" href="#5-response-format" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span><span class="err">\</span><span class="s2">&quot;respcd\&quot;: \&quot;6000\&quot;,\&quot;data\&quot;: \&quot;{&quot;</span><span class="err">aaaaaa&quot;}\&quot;,\&quot;respmsg\&quot;: \&quot;xxxxxxxxxx\&quot;,\&quot;resperr\&quot;:\&quot;xxxxxxxxxx\&quot;}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>1、respcd: response code
+    （1）、&quot;4003&quot;，POS-KEY is invalid
+    （2）、&quot;5001&quot;，Decryption failed
+    （3）、&quot;4004&quot;，Request method is incorrect, may use POST request
+    （4）、&quot;4005&quot;，Other errors
+    （5）、&quot;4006&quot;  Incorrect parameter(s)
+    （6）、&quot;5001&quot;，Decryption failed
+
+    （7）、&quot;6000&quot;  请求成功     
+    （8）、&quot;6001&quot;  用户取消  
+    （9）、&quot;6002&quot;  请求错误
+
+2、respmsg：Response message
+3、resperr：Error message
+4、data:交易或者退款返回的数据，
+    （1）交易返回数据字段：    
+          respcd;请求响应码
+          resmsg;请求信息
+          reserr;错误信息
+          mchntnm;商户名称
+          sysdtm;系统时间
+          userid;userid
+          busicd;业务代码
+          txamt;金额
+          txcurrcd;貨幣
+          chnlsn;通道序列號
+          paydtm;支付时间
+          udid;用户id
+          syssn;流水号
+          clisn;客戶端序列號
+          out_trade_no；外部订单号
+          cardscheme
+    （2）退款返回数据字段：
+         respcd;请求响应码
+         resmsg;请求信息
+         reserr;错误信息
+         sysdtm;系统时间
+         paydtm;支付时间
+         txcurrcd;貨幣
+         txdtm;时间
+         orig_syssn;原生订单号
+         out_trade_no;外部订单号
+         syssn;系统流水号
+         chnlsn;通道序列號
+         txamt;退款金额
+         originTxamt;原订单金额
+
+      （3）查询交易信息返回字段：
+           server_time;服务器时间
+           cancel;cancel状态
+           clisn;客戶端序列號
+           opuid; 操作员id
+           prepay_amt;支付金额
+           syssn;系统流水号
+           tradetp;交易方式
+           sysdtm;系统时间
+           txcurrcd;貨幣
+           origssn;原始流水号
+           customer_source;消费者来源
+           opuser;操作员
+           nickname;用户名
+           allow_refund_amt;允许退款金额
+           desc;描述信息
+           txamt;交易金额
+           busicd;业务代码
+           respcd;响应编码
+           origbusicd;原业务代码
+           chnlsn;通道序列號
+           cardscheme；
+
+5. If encryption is enabled, the response will be encrypted
+</code></pre></div>
+<h2 id="6-usb-data-transmission-method">6. USB data transmission method<a class="headerlink" href="#6-usb-data-transmission-method" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Connect the POS to the cash register via USB cable.</li>
+<li>follow the USB communication protocol to construct the data. See the ninth article for details: "Cash register &amp; Pos communication protocol".</li>
+<li>Data response. The received data needs to be parsed according to the communication protocol, and then the data message is obtained, and then decrypted by AES.</li>
+</ol>
+<h2 id="7-http-protocol">7. HTTP protocol<a class="headerlink" href="#7-http-protocol" title="Permanent link">&para;</a></h2>
+<ol>
+<li>HTTP data transmission method requires POS host IP address and port. The default port of the HTTP method is 9001.</li>
+<li>Data message format:
+     (1) Encrypt the data message through AES
+     (2) Initiate the request through the HTTP Post request</li>
+<li>Request API
+     (1) Trade: /api/pos/trade
+     (2) Refund: /api/pos/cancel
+     (3) Print receipt: /api/pos/print_receipt
+     (4) Print transaction summary: /api/pos/transaction_info
+     (4) 查询交易信息: /api/pos/query_transaction
+     (5) 取消交易或者退款请求：/api/pos/cancel_request </li>
+<li>The request header needs to be set. The request Content-type format is: application/json</li>
+<li>The request result needs to be decrypted by AES to obtain the response message data</li>
+</ol>
+<h2 id="8-tcp-protocol">8. TCP protocol<a class="headerlink" href="#8-tcp-protocol" title="Permanent link">&para;</a></h2>
+<ol>
+<li>The HTTP data transmission method requires POS host and port. The default port of the HTTP method is 9002.</li>
+<li>Cash register connects to POS through socket connection</li>
+<li>Data is transmitted through socket. The data format is the encrypted data of the data message after AES encryption.</li>
+<li>The result of the request needs to be decrypted by AES to obtain the response message data</li>
+</ol>
+<h2 id="9-cash-register-pos-communication-protocol-usb">9. Cash register &amp; Pos communication protocol (USB)<a class="headerlink" href="#9-cash-register-pos-communication-protocol-usb" title="Permanent link">&para;</a></h2>
+<h3 id="91-use-scenario">9.1 Use scenario<a class="headerlink" href="#91-use-scenario" title="Permanent link">&para;</a></h3>
+<p>The cash register and the smart POS device communicate through the serial port or Bluetooth to realize the cash register through the Haojin merchant App on the smart POS to collect and cancel the transaction.</p>
+<h3 id="92-communication-method">9.2 Communication method<a class="headerlink" href="#92-communication-method" title="Permanent link">&para;</a></h3>
+<p>Serial port.</p>
+<p>Through the Micro USB interface on the smart POS device or by borrowing the base to convert to USB Host mode, connect to the cash register via USB to serial cable.</p>
+<p>USB is more stable than Wifi, secure, and easy to deploy.</p>
+<h3 id="93-payload-format">9.3 Payload format<a class="headerlink" href="#93-payload-format" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>content</th>
+<th>Description</th>
+<th>Length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Start indicator</td>
+<td>0x2f6e</td>
+<td>start of payload</td>
+<td>2 Bytes</td>
+</tr>
+<tr>
+<td>version</td>
+<td>0x01</td>
+<td>version (static)</td>
+<td>1 Byte</td>
+</tr>
+<tr>
+<td>payload type</td>
+<td>0x10<br>0x20<br>0x30</td>
+<td>request <br> response <br> response error</td>
+<td>1 Byte</td>
+</tr>
+<tr>
+<td>response reference number</td>
+<td>0x01 ~ 0x7f</td>
+<td>used for request/response, payload splitting / concatenation <br> incremental for each, in loop</td>
+<td>1 Byte</td>
+</tr>
+<tr>
+<td>payload length</td>
+<td></td>
+<td>total bytes from <code>Start indicator</code> to <code>End indicator</code></td>
+<td>2字节</td>
+</tr>
+<tr>
+<td>payload length (data segment)</td>
+<td></td>
+<td>total bytes of data segment</td>
+<td>2 Bytes</td>
+</tr>
+<tr>
+<td>data segment</td>
+<td></td>
+<td>data segment, utf-8 encoding</td>
+<td>non static</td>
+</tr>
+<tr>
+<td>End indicator</td>
+<td>0x2f6e</td>
+<td>indicate end of the payload</td>
+<td>2 Bytes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="94-detail-explanation">9.4 detail explanation<a class="headerlink" href="#94-detail-explanation" title="Permanent link">&para;</a></h3>
+<h4 id="start-indicator-and-end-indicator">Start indicator and end indicator<a class="headerlink" href="#start-indicator-and-end-indicator" title="Permanent link">&para;</a></h4>
+<p>In order to avoid the situation that a data packet is split into multiple data blocks due to hardware reasons during communication, resulting in the inability to obtain the contents of the packet normally. The sender adds the start and end characters (0x2f6e) to each packet when sending the packet.</p>
+<p>After the receiver receives the packet, it will check whether the first two bytes of the packet are the start character (0x2f6e). If not, an error packet (0x31) will be responded. Otherwise, continue to traverse the subsequent bytes until the end character.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>0x2f6e is the hexadecimal representation of <code>/n</code> (string, NOT the carriage return) in ASCII encoding</p>
+</div>
+<h4 id="payload-error-type">Payload error type<a class="headerlink" href="#payload-error-type" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>error type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x30</td>
+<td>unknown</td>
+</tr>
+<tr>
+<td>0x31</td>
+<td>format error</td>
+</tr>
+<tr>
+<td>0x32</td>
+<td>validation error</td>
+</tr>
+<tr>
+<td>0x33</td>
+<td>data segment decrypt error</td>
+</tr>
+<tr>
+<td>0x34</td>
+<td>data segment format error</td>
+</tr>
+<tr>
+<td>0x35</td>
+<td>data segment packets error</td>
+</tr>
+</tbody>
+</table>
+<h4 id="request-and-response">request and response<a class="headerlink" href="#request-and-response" title="Permanent link">&para;</a></h4>
+<p>When the receiver receives the request packet (packet type is 0x10), it needs to send a response packet to inform the sender of the result of receiving the packet. If the validation is successful, the response packet type is 0x20. If the validation fails, the response packet type is 0x32. The response packet number is the same as the request packet number.</p>
+<h4 id="response-timeout">response timeout<a class="headerlink" href="#response-timeout" title="Permanent link">&para;</a></h4>
+<p>Response timeout is 1000ms, if timeout, the request is considered failed, and the device is disconnected.</p>
+<h4 id="payload-length">payload length<a class="headerlink" href="#payload-length" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>1. total length of the payload, from start indicator to end indicator
+2. payload length of data segment
+3. since the payload length is 2 bytes, the maximum length of the data segment is 65536 bytes
+4. it is recommended to keep the data segment length within 1024 bytes, 
+   if the data segment is too long, it should be split into multiple packets
+</code></pre></div>
+<h5 id="data-pack-splitting-and-concatenation">Data pack splitting and concatenation<a class="headerlink" href="#data-pack-splitting-and-concatenation" title="Permanent link">&para;</a></h5>
+<p>When sender splits the data segment into multiple packets, the packet number is the same, and the packet length is the total length of the data segment. The receiver needs to wait for the subsequent packets with the same packet number until the packet length is equal to the total length of the data segment, and then send the response packet.</p>
+<p>The receiver waits for the timeout of multiple packets to be <em>500</em>ms. After the timeout, the previously received packets are discarded. If subsequent packets with the same number are received, an error (0x35) response packet is sent.</p>
+<h4 id="data-encryption">Data encryption<a class="headerlink" href="#data-encryption" title="Permanent link">&para;</a></h4>
+<p>The sender and receiver need to encrypt the valid data using the AES algorithm. The key is allocated by the service provider.</p>
+<p>Key length 16 bytes 128 bits</p>
+<p>Key offset <strong>*</strong>
+Algorithm mode CBC (Cipher Block Chaining) encryption block chain
+Padding method PKCS5Padding</p>
+<h4 id="serial-port-settings">Serial port settings<a class="headerlink" href="#serial-port-settings" title="Permanent link">&para;</a></h4>
+<p>Baud rate: 9600
+Stop bit: 1
+Parity bit: 0
+Data bit: 8
+Flow control: off</p>
+<h5 id="usb-to-serial-port-line-chip-type-supported">USB to serial port line chip type supported<a class="headerlink" href="#usb-to-serial-port-line-chip-type-supported" title="Permanent link">&para;</a></h5>
+<p>PL2303 HXD supported
+CH340 not supported
+FT232 not supported</p>
+<p>The above chip types are the most common USB to serial port chips on the market. The stability and price of the three chips are the same, FT232&gt;CH340&gt;PL2303</p>
+<h4 id="sample-data">Sample data<a class="headerlink" href="#sample-data" title="Permanent link">&para;</a></h4>
+<p>Sample data is as follows:</p>
+<p><code>{\"content\":\"{\\\"amt\\\":100,\\\"channel\\\":\\\"wx\\\",\\\"funcType\\\":1,\\\"mode\\\":1}\",\"digest\":\"2f0c4683e25a7b9407265033070e9034\"}</code></p>
+<p>完整数据报文（16进制）为：
+<code>2f6e011001007f00747b22636f6e74656e74223a227b5c22616d745c223a3130302c5c226368616e6e656c5c223a5c2277785c222c5c2266756e63547970655c223a312c5c226d6f64655c223a317d222c22646967657374223a223266306334363833653235613762393430373236353033333037306539303334227d2f6e</code></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-27</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "navigation.top", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+      
+        <script src="../../javascripts/tablesort.js"></script>
+      
+    
+  </body>
+</html>

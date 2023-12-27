@@ -1,0 +1,1577 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../alipay%20service%20window%20h5/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>Transaction Enquiry - QFPay Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  
+
+  <meta name="robots" content="noindex,noarchive,nofollow" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link
+    rel="stylesheet"
+    href="../../assets/stylesheets/custom.css"
+  />
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#transaction-enquiry" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QFPay Docs" class="md-header__button md-logo" aria-label="QFPay Docs" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QFPay Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Transaction Enquiry
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pos/ecr/" class="md-tabs__link">
+          
+  
+  POS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../subscription/integration/" class="md-tabs__link">
+          
+  
+  Subscription
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cdi/integration/" class="md-tabs__link">
+          
+  
+  CDI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../payment/" class="md-tabs__link">
+          
+  
+  Payment API
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://checkout-sdk.qfapi.com/" class="md-tabs__link">
+        
+  
+    
+  
+  Checkout Page
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://android-sdk.qfapi.com/" class="md-tabs__link">
+        
+  
+    
+  
+  Android SDK
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QFPay Docs" class="md-nav__button md-logo" aria-label="QFPay Docs" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    QFPay Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    POS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            POS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pos/ecr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ECR integration technical specification (archived version 20231218)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Subscription
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Subscription
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../subscription/integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QFPay Subscription API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    CDI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            CDI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cdi/integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CDI Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cdi/test%20values/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Test values
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cdi/transaction%20data%20file%20specification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transaction data file specification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cdi/merchant%20data%20file%20specification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Merchant data file specification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Payment API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Payment API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../payment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Payment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../alipay%20service%20window%20h5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Alipay Service Window H5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Transaction Enquiry
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Transaction Enquiry
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api-endpoint-for-transaction-enquiry" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Endpoint for Transaction Enquiry
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Endpoint for Transaction Enquiry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response Parameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#account-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Account Statement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-endpoint-for-account-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Endpoint for Account Statement
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Endpoint for Account Statement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http-request_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Parameter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://checkout-sdk.qfapi.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Checkout Page
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://android-sdk.qfapi.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android SDK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="transaction-enquiry">Transaction Enquiry<a class="headerlink" href="#transaction-enquiry" title="Permanent link">&para;</a></h1>
+<aside class="warning"> If the <code>mchid</code> is provided, it is mandatory to submit the <code>mchid</code> when calling the API (unless otherwise specified). On the contrary, if <code>mchid</code> is not provided, merchants shall not pass the <code>mchid</code> field in the API request.
+</aside>
+
+<h2 id="api-endpoint-for-transaction-enquiry">API Endpoint for Transaction Enquiry<a class="headerlink" href="#api-endpoint-for-transaction-enquiry" title="Permanent link">&para;</a></h2>
+<h3 id="http-request">HTTP Request<a class="headerlink" href="#http-request" title="Permanent link">&para;</a></h3>
+<p><code>POST ../trade/v1/query</code></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">plaintext</label><label for="__tabbed_1_2">python</label><label for="__tabbed_1_3">java</label><label for="__tabbed_1_4">javascript</label><label for="__tabbed_1_5">php</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Request Header:
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>{
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Content-Type: application/x-www-form-urlencoded;
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>X-QF-APPCODE: D5589D2A1F2E42A9A60C37**********
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>X-QF-SIGN: 6FB43AC29175B4602FF95F8332028F19
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>}
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>Request Body:
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>{
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>mchid=ZaMVg*****&amp;syssn=20191227000200020061752831&amp;start_time=2019-12-27 00:00:00&amp;end_time=2019-12-27 23:59:59
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>}
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">urllib.request</span><span class="o">,</span> <span class="nn">urllib.parse</span><span class="o">,</span> <span class="nn">urllib.error</span><span class="o">,</span> <span class="nn">urllib.request</span><span class="o">,</span> <span class="nn">urllib.error</span><span class="o">,</span> <span class="nn">urllib.parse</span><span class="o">,</span> <span class="nn">hashlib</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span> <span class="nn">requests</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">from</span> <span class="nn">hashids</span> <span class="kn">import</span> <span class="n">Hashids</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">import</span> <span class="nn">datetime</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kn">import</span> <span class="nn">string</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kn">import</span> <span class="nn">random</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># Enter Client Credentials</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">environment</span> <span class="o">=</span> <span class="s1">&#39;https://openapi-test.qfpay.com&#39;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">app_code</span> <span class="o">=</span> <span class="s1">&#39;D5589D2A1F2E42A9A60C37**********&#39;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">client_key</span> <span class="o">=</span> <span class="s1">&#39;0E32A59A8B454940A2FF39**********&#39;</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># Create parameter values for data payload</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="n">current_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">microsecond</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>         
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="n">random_string</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_uppercase</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">32</span><span class="p">))</span>                       
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="c1"># Create signature</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="k">def</span> <span class="nf">make_req_sign</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="n">keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    <span class="n">keys</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    <span class="n">p</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span> 
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>        <span class="n">v</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>        <span class="n">p</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">=</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="p">))</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>    <span class="n">unsign_str</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;&amp;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">+</span> <span class="n">key</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>    <span class="n">s</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">unsign_str</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>    <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="c1"># Body payload</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="n">mchid</span> <span class="o">=</span> <span class="s1">&#39;ZaMVg*****&#39;</span> <span class="c1">#(Agent ID, Merchant ID)</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="n">syssn</span> <span class="o">=</span> <span class="s1">&#39;20191227000200020061752831&#39;</span> <span class="c1">#Search by transaction number only</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="n">out_trade_no</span> <span class="o">=</span> <span class="s1">&#39;2019122722001411461404119764&#39;</span> <span class="c1">#Search by out_trade_no only</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="n">start_time</span> <span class="o">=</span> <span class="s1">&#39;2019-12-27 00:00:00&#39;</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="n">end_time</span> <span class="o">=</span> <span class="s1">&#39;2019-12-27 23:59:59&#39;</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="n">key</span> <span class="o">=</span> <span class="n">client_key</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="c1">#data ={&#39;mchid&#39;: mchid, &#39;syssn&#39;: syssn, &#39;out_trade_no&#39;: out_trade_no, &#39;start_time&#39;: start_time, &#39;end_time&#39;: end_time}</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="n">data</span> <span class="o">=</span><span class="p">{</span><span class="s1">&#39;mchid&#39;</span><span class="p">:</span> <span class="n">mchid</span><span class="p">,</span> <span class="s1">&#39;syssn&#39;</span><span class="p">:</span> <span class="n">syssn</span><span class="p">}</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">environment</span><span class="o">+</span><span class="s2">&quot;/trade/v1/query&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;X-QF-APPCODE&#39;</span><span class="p">:</span><span class="n">app_code</span><span class="p">,</span><span class="s1">&#39;X-QF-SIGN&#39;</span><span class="p">:</span><span class="n">make_req_sign</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="p">)})</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>
+<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="nb">print</span><span class="p">(</span><span class="n">make_req_sign</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>  
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.text.SimpleDateFormat</span><span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Date</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Enquiry</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">args</span><span class="o">[]</span><span class="p">){</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">appcode</span><span class="o">=</span><span class="s">&quot;D5589D2A1F2E42A9A60C37**********&quot;</span><span class="p">;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;0E32A59A8B454940A2FF39*********&quot;</span><span class="p">;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">mchid</span><span class="o">=</span><span class="s">&quot;ZaMVg*****&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Only Agents must provide the mchid</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="n">SimpleDateFormat</span><span class="w"> </span><span class="n">df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleDateFormat</span><span class="p">(</span><span class="s">&quot;yyyy-MM-dd HH:mm:ss&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">date</span><span class="o">=</span><span class="n">df</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">());</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">txdtm</span><span class="o">=</span><span class="n">date</span><span class="p">;</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">syssn</span><span class="o">=</span><span class="s">&quot;20191227000300020061662295&quot;</span><span class="p">;</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">start_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;2019-12-27 00:00:00&quot;</span><span class="p">;</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">end_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;2019-12-27 23:59:59&quot;</span><span class="p">;</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">unsortMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">        </span><span class="n">unsortMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;mchid&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">mchid</span><span class="p">);</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">        </span><span class="n">unsortMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;syssn&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">syssn</span><span class="p">);</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">data</span><span class="o">=</span><span class="n">QFPayUtils</span><span class="p">.</span><span class="na">getDataString</span><span class="p">(</span><span class="n">unsortMap</span><span class="p">);</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Data:\n&quot;</span><span class="o">+</span><span class="n">data</span><span class="o">+</span><span class="n">key</span><span class="p">);</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">md5Sum</span><span class="o">=</span><span class="n">QFPayUtils</span><span class="p">.</span><span class="na">getMd5Value</span><span class="p">(</span><span class="n">data</span><span class="o">+</span><span class="n">key</span><span class="p">);</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Md5 Value:\n&quot;</span><span class="o">+</span><span class="n">md5Sum</span><span class="p">);</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">url</span><span class="o">=</span><span class="s">&quot;https://openapi-test.qfpay.com&quot;</span><span class="p">;</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">resp</span><span class="o">=</span><span class="w"> </span><span class="n">Requests</span><span class="p">.</span><span class="na">sendPostRequest</span><span class="p">(</span><span class="n">url</span><span class="o">+</span><span class="s">&quot;/trade/v1/query&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">appcode</span><span class="p">,</span><span class="n">key</span><span class="p">);</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">resp</span><span class="p">);</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// Enter Client Credentials</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">environment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;https://openapi-test.qfpay.com&#39;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">app_code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;D5589D2A1F2E42A9A60C37**********&#39;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">client_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;0E32A59A8B454940A2FF39**********&#39;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1">// Generate Timestamp</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="kd">var</span><span class="w"> </span><span class="nx">dateTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">().</span><span class="nx">toISOString</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/T/</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\..+/</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">dateTime</span><span class="p">)</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1">// Body Payload</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="kd">const</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">client_key</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="kd">var</span><span class="w"> </span><span class="nx">tradenumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000000000</span><span class="p">))</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">tradenumber</span><span class="p">)</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="kd">var</span><span class="w"> </span><span class="nx">payload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="s1">&#39;syssn&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;20191231000300020063521806&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="s1">&#39;start_time&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2019-12-27 00:00:00&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="s1">&#39;end_time&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2019-12-31 23:59:59&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="s1">&#39;mchid&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ZaMVg*****&#39;</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="p">};</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="c1">// Signature Generation</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="kd">const</span><span class="w"> </span><span class="nx">ordered</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">payload</span><span class="p">).</span><span class="nx">sort</span><span class="p">().</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="nx">ordered</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">payload</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ordered</span><span class="p">)</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="kd">var</span><span class="w"> </span><span class="nx">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">ordered</span><span class="p">)</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">ordered</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">p</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="nx">str</span><span class="p">.</span><span class="nx">push</span><span class="p">((</span><span class="nx">p</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">ordered</span><span class="p">[</span><span class="nx">p</span><span class="p">]));</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="p">}</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="kd">var</span><span class="w"> </span><span class="nx">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">str</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;&amp;&quot;</span><span class="p">)</span><span class="o">+</span><span class="nx">client_key</span><span class="p">;</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">string</span><span class="p">)</span>
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="kd">const</span><span class="w"> </span><span class="nx">crypto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;crypto&#39;</span><span class="p">)</span>
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="kd">var</span><span class="w"> </span><span class="nx">hashed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">crypto</span><span class="p">.</span><span class="nx">createHash</span><span class="p">(</span><span class="s1">&#39;md5&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="nx">string</span><span class="p">).</span><span class="nx">digest</span><span class="p">(</span><span class="s1">&#39;hex&#39;</span><span class="p">)</span>
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">hashed</span><span class="p">)</span>
+<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>
+<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>
+<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="c1">// API Request</span>
+<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a><span class="kd">var</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;request&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="nx">request</span><span class="p">({</span>
+<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="nx">uri</span><span class="o">:</span><span class="w"> </span><span class="nx">environment</span><span class="o">+</span><span class="s2">&quot;/trade/v1/query&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a><span class="w">    </span><span class="s1">&#39;X-QF-APPCODE&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">app_code</span><span class="p">,</span>
+<a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a><span class="w">    </span><span class="s1">&#39;X-QF-SIGN&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">hashed</span>
+<a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a><span class="p">},</span>
+<a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a><span class="nx">form</span><span class="o">:</span><span class="w"> </span><span class="nx">payload</span><span class="p">,</span>
+<a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a><span class="p">},</span><span class="w"> </span>
+<a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a><span class="p">});</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">ob_start</span><span class="p">();</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">function</span> <span class="nf">GetRandStr</span><span class="p">(</span><span class="nv">$length</span><span class="p">){</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nv">$str</span><span class="o">=</span><span class="s1">&#39;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&#39;</span><span class="p">;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nv">$len</span><span class="o">=</span><span class="nb">strlen</span><span class="p">(</span><span class="nv">$str</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="nv">$randstr</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="k">for</span><span class="p">(</span><span class="nv">$i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nv">$i</span><span class="o">&lt;</span><span class="nv">$length</span><span class="p">;</span><span class="nv">$i</span><span class="o">++</span><span class="p">){</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nv">$num</span><span class="o">=</span><span class="nb">mt_rand</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nv">$len</span><span class="p">);</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="nv">$randstr</span> <span class="o">.=</span> <span class="nv">$str</span><span class="p">[</span><span class="nv">$num</span><span class="p">];</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="p">}</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="k">return</span> <span class="nv">$randstr</span><span class="p">;</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">}</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="nv">$url</span> <span class="o">=</span> <span class="s1">&#39;https://test-openapi-eur.qfapi.com&#39;</span><span class="p">;</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="nv">$api_type</span> <span class="o">=</span> <span class="s1">&#39;/trade/v1/query&#39;</span><span class="p">;</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    <span class="nv">$syssn</span> <span class="o">=</span> <span class="s1">&#39;20200311066100020000977841&#39;</span><span class="p">;</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    <span class="c1">//$out_trade_no = &#39;zCvo0IqTg0SaQkGnHd6w&#39;;</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    <span class="c1">//$mchid = &quot;MNxMp11FV35qQN&quot;; //Only agents must provide this parameter</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    <span class="nv">$app_code</span> <span class="o">=</span> <span class="s1">&#39;FF2FF74F2F2E42769A4A73*********&#39;</span><span class="p">;</span> <span class="c1">//API credentials provided by QFPay</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>    <span class="nv">$app_key</span> <span class="o">=</span> <span class="s1">&#39;7BE791E0FD2E48E6926043B*********&#39;</span><span class="p">;</span> <span class="c1">//API credentials provided by QFPay</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    <span class="nv">$now_time</span> <span class="o">=</span> <span class="nb">date</span><span class="p">(</span><span class="s2">&quot;Y-m-d H:i:s&quot;</span><span class="p">);</span> <span class="c1">//Get the current date-time  </span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>    <span class="nv">$fields_string</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>    <span class="nv">$fields</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>    <span class="c1">//&#39;mchid&#39; =&gt; urlencode($mchid),</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>    <span class="s1">&#39;syssn&#39;</span> <span class="o">=&gt;</span> <span class="nb">urlencode</span><span class="p">(</span><span class="nv">$syssn</span><span class="p">),</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>    <span class="c1">//&#39;out_trade_no&#39; =&gt; urlencode($out_trade_no),</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>    <span class="c1">//&#39;start_time&#39; = &#39;2020-03-01 00:00:00&#39;,</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>    <span class="c1">//&#39;end_time&#39; = &#39;2020-03-04 23:59:59&#39;</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>    <span class="p">);</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>    <span class="nb">ksort</span><span class="p">(</span><span class="nv">$fields</span><span class="p">);</span> <span class="c1">//Sort parameters in ascending order from A to Z</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$fields</span><span class="p">);</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>    <span class="k">foreach</span><span class="p">(</span><span class="nv">$fields</span> <span class="k">as</span> <span class="nv">$key</span><span class="o">=&gt;</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span> 
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>    <span class="nv">$fields_string</span> <span class="o">.=</span> <span class="nv">$key</span><span class="o">.</span><span class="s1">&#39;=&#39;</span><span class="o">.</span><span class="nv">$value</span><span class="o">.</span><span class="s1">&#39;&amp;&#39;</span> <span class="p">;</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="p">}</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a><span class="nv">$fields_string</span> <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$fields_string</span> <span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="nb">strlen</span><span class="p">(</span><span class="nv">$fields_string</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span> 
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>
+<a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a><span class="nv">$sign</span> <span class="o">=</span> <span class="nb">strtoupper</span><span class="p">(</span><span class="nb">md5</span><span class="p">(</span><span class="nv">$fields_string</span> <span class="o">.</span> <span class="nv">$app_key</span><span class="p">));</span>
+<a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>
+<a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a><span class="c1">//// Header ////</span>
+<a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a><span class="nv">$header</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+<a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a><span class="nv">$header</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;X-QF-APPCODE: &#39;</span> <span class="o">.</span> <span class="nv">$app_code</span><span class="p">;</span>
+<a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a><span class="nv">$header</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;X-QF-SIGN: &#39;</span> <span class="o">.</span> <span class="nv">$sign</span><span class="p">;</span>
+<a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a>
+<a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a><span class="c1">//Post Data</span>
+<a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a><span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a><span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="nv">$url</span> <span class="o">.</span> <span class="nv">$api_type</span><span class="p">);</span>
+<a id="__codelineno-4-49" name="__codelineno-4-49" href="#__codelineno-4-49"></a><span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-4-50" name="__codelineno-4-50" href="#__codelineno-4-50"></a><span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="nv">$header</span><span class="p">);</span>
+<a id="__codelineno-4-51" name="__codelineno-4-51" href="#__codelineno-4-51"></a><span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_SSL_VERIFYPEER</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+<a id="__codelineno-4-52" name="__codelineno-4-52" href="#__codelineno-4-52"></a><span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-4-53" name="__codelineno-4-53" href="#__codelineno-4-53"></a><span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nv">$fields_string</span><span class="p">);</span>
+<a id="__codelineno-4-54" name="__codelineno-4-54" href="#__codelineno-4-54"></a><span class="nv">$output</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<a id="__codelineno-4-55" name="__codelineno-4-55" href="#__codelineno-4-55"></a><span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>    
+<a id="__codelineno-4-56" name="__codelineno-4-56" href="#__codelineno-4-56"></a>
+<a id="__codelineno-4-57" name="__codelineno-4-57" href="#__codelineno-4-57"></a><span class="nv">$final_data</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$output</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+<a id="__codelineno-4-58" name="__codelineno-4-58" href="#__codelineno-4-58"></a><span class="nb">print_r</span><span class="p">(</span><span class="nv">$final_data</span><span class="p">);</span>
+<a id="__codelineno-4-59" name="__codelineno-4-59" href="#__codelineno-4-59"></a>
+<a id="__codelineno-4-60" name="__codelineno-4-60" href="#__codelineno-4-60"></a><span class="nb">ob_end_flush</span><span class="p">();</span>
+<a id="__codelineno-4-61" name="__codelineno-4-61" href="#__codelineno-4-61"></a><span class="cp">?&gt;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nt">&quot;respmsg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nt">&quot;resperr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;请求成功&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nt">&quot;respcd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0000</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">[{</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="nt">&quot;cardtp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="nt">&quot;cancel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="nt">&quot;pay_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;800101&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="nt">&quot;order_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;payment&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="nt">&quot;clisn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;038424&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="nt">&quot;txdtm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2019-12-27 10:39:39&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="nt">&quot;goods_detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="nt">&quot;out_trade_no&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CHZ7D61JN1ANJF2R2K1I7TXP2JTCEWBL&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="nt">&quot;syssn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;20191227000200020061752831&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="nt">&quot;sysdtm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2019-12-27 10:40:24&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="nt">&quot;paydtm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2019-12-27 10:42:18&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="nt">&quot;goods_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="nt">&quot;txcurrcd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EUR&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="nt">&quot;chnlsn2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="nt">&quot;udid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;qiantai2&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="nt">&quot;userid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2605489&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="nt">&quot;txamt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="nt">&quot;chnlsn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2019122722001411461404119764&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="nt">&quot;respcd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0000&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="nt">&quot;goods_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="nt">&quot;errmsg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="p">}],</span><span class="w"> </span>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="nt">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="nt">&quot;page_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10&quot;</span>
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="p">}</span>
+</code></pre></div>
+<p>After making a payment, refund or cancellation request, the merchant can use the query interface to obtain the transaction status.</p>
+<p>The merchant can use the query interface to enquire transaction status of one or multiple transactions. In case the interface does not return <code>syssn</code> in time, use <code>out_trade_no</code> as a condition to query the transaction status.</p>
+<p>If merchants would like to query transactions in a month, they can provide <code>start_time</code> and <code>end_time</code> then records will be filtered according to the system transaction time <code>sysdtm</code>. The interval must be within one calendar month. Otherwise, it is recommended to include the <code>syssn</code> parameter as a query condition.</p>
+<p>When the query transaction is a refund then an additional parameter <code>origssn</code> will be returned. The <code>origssn</code> shows the QFPay transaction number of the original transaction that has been refunded.   </p>
+<h3 id="request-parameters">Request Parameters<a class="headerlink" href="#request-parameters" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter name</th>
+<th>Parameter code</th>
+<th>Mandatory</th>
+<th>Parameter type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Merchant number</td>
+<td><code> mchid </code></td>
+<td>For Agents</td>
+<td>String(16)</td>
+<td>If MCHID is given, it is mandatory to provide the <code>mchid.</code>On the contrary, if <code> mchid</code> is not provided, merchants shall not pass the <code>mchid</code> field in the API request.</td>
+</tr>
+<tr>
+<td>QFPay transaction number</td>
+<td><code> syssn </code></td>
+<td>No</td>
+<td>String(128)</td>
+<td>Multiple entries are seperated by commas</td>
+</tr>
+<tr>
+<td>API order number</td>
+<td><code> out_trade_no </code></td>
+<td>No</td>
+<td>String(128)</td>
+<td>External transaction number / Merchant platform transaction number, multiple entries are seperated by commas</td>
+</tr>
+<tr>
+<td>Payment type</td>
+<td><code> pay_type </code></td>
+<td>No</td>
+<td>String(6)</td>
+<td>Multiple entries are seperated by commas</td>
+</tr>
+<tr>
+<td>Transaction return code</td>
+<td><code> respcd </code></td>
+<td>No</td>
+<td>String(4)</td>
+<td>Returns all orders with return code status by default</td>
+</tr>
+<tr>
+<td>Starting time</td>
+<td><code> start_time </code></td>
+<td>No</td>
+<td>String(20)</td>
+<td>It is ignored when <code>syssn</code> or <code>out_trade_number</code> is provided. The default date time is the start of current month. Cross-month queries must add the time query parameters <code>start_time</code> and <code>end_time</code>. <br>Format: YYYY-MM-DD hh&#58;mm:ss</td>
+</tr>
+<tr>
+<td>End Time</td>
+<td><code> end_time </code></td>
+<td>No</td>
+<td>String(20)</td>
+<td>It is ignored when <code>syssn</code> or <code>out_trade_number</code> is provided. The default date time is the end of current month. Cross-month queries must add the time query parameters <code>start_time</code> and <code>end_time</code>. <br/>Format: YYYY-MM-DD hh&#58;mm:ss</td>
+</tr>
+<tr>
+<td>Time zone</td>
+<td><code> txzone </code></td>
+<td>No</td>
+<td>String(5)</td>
+<td>Used to record the local order time. The default is Beijing time UTC+8 (+0800)</td>
+</tr>
+<tr>
+<td>Number of pages</td>
+<td><code> page </code></td>
+<td>No</td>
+<td>Int(8)</td>
+<td>Default value is 1</td>
+</tr>
+<tr>
+<td>Number of items displayed per page</td>
+<td><code> page_size </code></td>
+<td>No</td>
+<td>Int(8)</td>
+<td>By default 10 transactions will be displayed. The maximum <code>page_size</code> value is 100</td>
+</tr>
+</tbody>
+</table>
+<h3 id="response-parameters">Response Parameters<a class="headerlink" href="#response-parameters" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter name</th>
+<th>Parameter code</th>
+<th>Parameter type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Page number</td>
+<td><code>page</code></td>
+<td>Int(8)</td>
+<td></td>
+</tr>
+<tr>
+<td>Request result description</td>
+<td><code>resperr</code></td>
+<td>String(128)</td>
+<td></td>
+</tr>
+<tr>
+<td>Display number of items per page</td>
+<td><code>page_size</code></td>
+<td>Int(8)</td>
+<td></td>
+</tr>
+<tr>
+<td>Request result code</td>
+<td><code>respcd</code></td>
+<td>String(4)</td>
+<td>0000 - Interface call succeeded</td>
+</tr>
+<tr>
+<td>Query result</td>
+<td><code>data</code></td>
+<td>Object</td>
+<td>JSON format</td>
+</tr>
+<tr>
+<td>QFPay transaction number</td>
+<td><code>syssn</code></td>
+<td>String(40)</td>
+<td></td>
+</tr>
+<tr>
+<td>API order number</td>
+<td><code>out_trade_no</code></td>
+<td>String(128)</td>
+<td>External transaction number / Merchant platform transaction number</td>
+</tr>
+<tr>
+<td>Wallet/Channel transaction number</td>
+<td><code>chnlsn</code></td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>Product name</td>
+<td><code>goods_name</code></td>
+<td>String(64)</td>
+<td>Goods Name / Marking: Cannot exceed 20 alphanumeric or contain special characters. Cannot be empty for app payment. Parameter needs to be <strong>UTF-8</strong> encoded if it is written in Chinese characters.</td>
+</tr>
+<tr>
+<td>Transaction currency</td>
+<td><code>txcurrcd</code></td>
+<td>String(3)</td>
+<td>View the <a href="#currencies">Currencies</a> table for a complete list of available currencies</td>
+</tr>
+<tr>
+<td>Original transaction number</td>
+<td><code>origssn</code></td>
+<td>String(40)</td>
+<td>Refers to the original QFPay transaction number. This parameter is only available when the <code>syssn</code> of a refund is queued</td>
+</tr>
+<tr>
+<td>Payment type</td>
+<td><code>pay_type</code></td>
+<td>String(6)</td>
+<td>Please refer to the section <a href="#payment-codes">Payment Codes</a> for a complete list of payment types</td>
+</tr>
+<tr>
+<td>Order type</td>
+<td><code>order_type</code></td>
+<td>String(16)</td>
+<td>Payment: Payment transaction Refund: Refund transaction</td>
+</tr>
+<tr>
+<td>Request transaction time</td>
+<td><code>txdtm</code></td>
+<td>String(20)</td>
+<td>Request transaction time provided by merchant in payment and refund request. Format: YYYY-MM-DD hh&#58;mm:ss</td>
+</tr>
+<tr>
+<td>Transaction amount</td>
+<td><code>txamt</code></td>
+<td>Int(11)</td>
+<td>Amount of the transaction. Unit in cents (i.e. 100 = $1)</td>
+</tr>
+<tr>
+<td>System transaction time</td>
+<td><code>sysdtm</code></td>
+<td>String(20)</td>
+<td>Format: YYYY-MM-DD hh&#58;mm:ss <br> This parameter value is used as the cut-off time for settlements.</td>
+</tr>
+<tr>
+<td>Cancellation or refund indicator</td>
+<td><code>cancel</code></td>
+<td>String(1)</td>
+<td>Transaction cancel status: <br> 0 = Not cancelled <br> 1 = For CPM: Transaction reversed or refunded successfully <br> 2 = For MPM: Transaction canceled successfully <br> 3 = Transaction refunded <br> 4 = Alipay Preauth order finished <br> 5 = Transaction partially refunded</td>
+</tr>
+<tr>
+<td>Payment status</td>
+<td><code>respcd</code></td>
+<td>String(4)</td>
+<td>0000 = transaction succeeded <br> 1143/1145 = Please wait to evaluate the transaction status. All other response codes indicate transaction failure</td>
+</tr>
+<tr>
+<td>Payment status message</td>
+<td><code>errmsg</code></td>
+<td>String(128)</td>
+<td>Payment result description</td>
+</tr>
+<tr>
+<td>Currency exchange rate</td>
+<td><code>exchange_rate</code></td>
+<td>String</td>
+<td>Applied currency conversion exchange rate</td>
+</tr>
+<tr>
+<td>Net payment amount</td>
+<td><code>cash_fee</code></td>
+<td>String</td>
+<td>Actual payment amount by user = transaction amount - discounts</td>
+</tr>
+<tr>
+<td>Payment currency</td>
+<td><code>cash_fee_type</code></td>
+<td>String</td>
+<td>Actual payment currency e.g. CNY</td>
+</tr>
+<tr>
+<td>Net refund amount</td>
+<td><code>cash_refund_fee</code></td>
+<td>String</td>
+<td>Actual refund amount</td>
+</tr>
+<tr>
+<td>Refund currency</td>
+<td><code>cash_refund_fee_type</code></td>
+<td>String</td>
+<td>Actual refund currency e.g. CNY</td>
+</tr>
+</tbody>
+</table>
+<h2 id="account-statement">Account Statement<a class="headerlink" href="#account-statement" title="Permanent link">&para;</a></h2>
+<p>The clearing statement for a particular payment channel is downloaded regularly. Additional requests can only be made in the production environment. The system response is in form of a compressed zip file. Data is based on the selected payment channel and contains all merchants therefore the <code>mchid</code> cannot be passed in as a request parameter.</p>
+<h2 id="api-endpoint-for-account-statement">API Endpoint for Account Statement<a class="headerlink" href="#api-endpoint-for-account-statement" title="Permanent link">&para;</a></h2>
+<h3 id="http-request_1">HTTP Request<a class="headerlink" href="#http-request_1" title="Permanent link">&para;</a></h3>
+<p><code>GET ../download/v1/trade_bill</code></p>
+<h3 id="request-parameter">Request Parameter<a class="headerlink" href="#request-parameter" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Request code</th>
+<th>Mandatory</th>
+<th>Parameter type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>trade_date</code></td>
+<td>Yes</td>
+<td>String(10)</td>
+<td>Get a specific account statement for the selected date. Example: 2017-10-17</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-12-27</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "navigation.top", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+      
+        <script src="../../javascripts/tablesort.js"></script>
+      
+    
+  </body>
+</html>
