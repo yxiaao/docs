@@ -101,6 +101,7 @@ plugins:
   - git-revision-date-localized:
       type: iso_date
   - tags
+  - search
 
 # Hooks
 hooks:
